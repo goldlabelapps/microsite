@@ -23,13 +23,10 @@ describe("UseCaseSlider component", () => {
     await user.click(prevBtn);
   });
 
-  it("opens video modal when clicking watch case", async () => {
-    const user = userEvent.setup();
+  it("renders platform blueprint architecture inspector and CTA link", () => {
     render(<UseCaseSlider />);
-
-    const watchBtns = screen.getAllByRole("button", { name: /view case/i });
-    await user.click(watchBtns[0]);
-
-    expect(screen.getByTitle(/Product Engineers Demo/i)).toBeInTheDocument();
+    expect(screen.getByText("Platform Blueprint")).toBeInTheDocument();
+    expect(screen.getByText("Targeted Architecture")).toBeInTheDocument();
+    expect(screen.getByText("Explore Developer Guide")).toBeInTheDocument();
   });
 });

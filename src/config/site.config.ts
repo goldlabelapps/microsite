@@ -113,11 +113,7 @@ export const siteConfig: SiteConfig = {
       icon: "ExternalLink",
     },
     video: {
-      enabled: true,
-      badge: "Watch Overview",
-      title: "NX° Platform Walkthrough & Architecture",
-      youtubeEmbedUrl: "https://www.youtube.com/embed/videoseries?list=UU7Z1_KxL_KjR1k",
-      hoverText: "Watch NX° demo",
+      enabled: false,
     },
     particleField: {
       enabled: true,
@@ -254,7 +250,6 @@ export const adminCartridge = createCartridge({
         role: "Product Engineers",
         tagline: "Ship Next.js apps with extreme speed & zero boilerplate",
         description: "Build SEO-optimized, ultra-fast web experiences with server-side rendering, static site generation, and instant hot-module reloading.",
-        youtubeEmbedUrl: "https://www.youtube.com/embed/videoseries?list=UU7Z1_KxL_KjR1k",
         keyFeatures: [
           "Next.js 16 + React 19 + TypeScript foundation",
           "Zero-config deployment to Vercel, Cloudflare, or AWS",
@@ -270,7 +265,6 @@ export const adminCartridge = createCartridge({
         role: "Founders & Operators",
         tagline: "Manage operations, queues & content from a unified CMS",
         description: "Operate your product without context switching. Manage curation pipelines, affiliate products, notifications, and user roles from one founder dashboard.",
-        youtubeEmbedUrl: "https://www.youtube.com/embed/videoseries?list=UU7Z1_KxL_KjR1k",
         keyFeatures: [
           "Automated CRUD and queue management",
           "Role-based access control and Supabase session auth",
@@ -286,7 +280,6 @@ export const adminCartridge = createCartridge({
         role: "Platform Architects",
         tagline: "Scale multiple digital products without code fragmentation",
         description: "Keep internal tools and public-facing products strictly aligned. Share design tokens, utilities, and state engines across dozens of modular apps.",
-        youtubeEmbedUrl: "https://www.youtube.com/embed/videoseries?list=UU7Z1_KxL_KjR1k",
         keyFeatures: [
           "Monorepo governance with isolated workspaces",
           "Shared design system and component libraries",

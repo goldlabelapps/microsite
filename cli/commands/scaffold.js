@@ -87,11 +87,9 @@ export async function runScaffold(subcommand, options = {}) {
         role: "${role}",
         tagline: "${tagline}",
         description: "${description}",
-        youtubeEmbedUrl: "https://www.youtube.com/embed/SVCBA-pBgt0?autoplay=1",
-        thumbnailGradient: "from-blue-600/30 via-indigo-600/20 to-purple-600/30",
         cta: {
-          label: "View case",
-          href: "#",
+          label: "Explore Workflow",
+          href: "https://goldlabel.pro/docs",
         },
         keyFeatures: [
           "Automated infrastructure audits",

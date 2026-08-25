@@ -25,10 +25,9 @@ describe("siteConfig", () => {
     expect(siteConfig.navigation.remoteControlBadge?.enabled).toBe(true);
   });
 
-  it("has hero configuration with particle field and video", () => {
+  it("has hero configuration with particle field and CTAs", () => {
     expect(siteConfig.hero.headline).toContain("unified platform");
-    expect(siteConfig.hero.video.enabled).toBe(true);
-    expect(siteConfig.hero.video.youtubeEmbedUrl).toContain("youtube.com");
+    expect(siteConfig.hero.primaryCta.label).toBe("Sign Up Free");
     expect(siteConfig.hero.particleField.colors.length).toBeGreaterThan(0);
   });
 

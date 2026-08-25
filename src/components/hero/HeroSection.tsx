@@ -1,16 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { siteConfig } from "@/config/site.config";
 import { ParticleCanvas } from "./ParticleCanvas";
-import { VideoModal } from "./VideoModal";
-import { CustomCursorWrapper } from "@/components/ui/CustomCursor";
 import { Button } from "@/components/ui/Button";
-import { Play, Terminal, Code2, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  Terminal,
+  Code2,
+  ShieldCheck,
+  Sparkles,
+  Layers,
+  Cpu,
+  ArrowRight,
+  Activity,
+  Zap,
+} from "lucide-react";
 
 export function HeroSection() {
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
-
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-28 sm:pt-36 pb-16 overflow-hidden">
       {/* Background Particle Mesh & Ambient Glow */}
@@ -61,74 +67,101 @@ export function HeroSection() {
           </Button>
         </div>
 
-        {/* Hero Video / Product Showcase Frame */}
-        <div className="mt-14 sm:mt-20 max-w-5xl mx-auto">
-          <CustomCursorWrapper
-            cursorLabel={siteConfig.hero.video.hoverText || "Play demo"}
-            onClick={() => setIsVideoModalOpen(true)}
-            className="border border-black/10 dark:border-white/15 bg-gradient-to-b from-white to-neutral-50 dark:from-[#2d3943] dark:to-[#252f38] shadow-2xl shadow-[#364450]/10 dark:shadow-black/80"
-          >
-            <div className="relative aspect-[16/9] w-full flex flex-col justify-between p-6 sm:p-10 overflow-hidden group">
-              {/* Subtle visual grid & ambient preview interior */}
-              <div className="absolute inset-0 bg-[radial-gradient(#0000000a_1px,transparent_1px)] dark:bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] opacity-60 dark:opacity-40" />
-              <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFD849]/10 dark:bg-[#FFD849]/15 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#364450]/10 dark:bg-[#364450]/25 rounded-full blur-3xl pointer-events-none" />
-
-              {/* Top Window Bar */}
-              <div className="relative z-10 flex items-center justify-between w-full">
-                <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded-full bg-red-400" />
-                  <div className="h-3 w-3 rounded-full bg-[#FFD849]" />
-                  <div className="h-3 w-3 rounded-full bg-emerald-400" />
-                  <span className="ml-2 text-xs font-mono text-[#5e6d7a] dark:text-[#cbd5e1] hidden sm:inline-block">
-                    nx-monorepo — apps/www & apps/cms
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black/[0.04] border border-black/5 dark:bg-white/10 dark:border-white/15 text-xs text-[#2c2c2a] dark:text-white font-mono">
-                  <span className="h-2 w-2 rounded-full bg-[#FFD849] animate-ping" />
-                  <span>Cartridges Active: 4 operational</span>
-                </div>
-              </div>
-
-              {/* Center Play Button Graphic & Preview Cards */}
-              <div className="relative z-10 flex flex-col items-center justify-center my-auto py-8">
-                <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center rounded-full bg-[#FFD849] dark:bg-[#FFD849] backdrop-blur-xl border border-black/10 dark:border-white/20 text-[#2c2c2a] shadow-2xl group-hover:scale-110 group-hover:bg-[#f0c930] transition-all duration-300">
-                  <Play className="h-8 w-8 sm:h-10 sm:w-10 fill-current ml-1" />
-                </div>
-                <h3 className="mt-5 text-base sm:text-xl font-bold text-[#2c2c2a] dark:text-white group-hover:text-amber-600 dark:group-hover:text-[#FFD849] transition-colors">
-                  {siteConfig.hero.video.title}
-                </h3>
-                <p className="mt-1 text-xs sm:text-sm text-[#5e6d7a] dark:text-[#cbd5e1]">
-                  Watch YouTube demo from @goldlabelApps (1:42)
-                </p>
-              </div>
-
-              {/* Bottom Mini Status Bar */}
-              <div className="relative z-10 hidden sm:flex items-center justify-between pt-4 border-t border-black/5 dark:border-white/10 text-xs text-[#5e6d7a] dark:text-[#cbd5e1] font-mono">
-                <div className="flex items-center gap-4">
-                  <span className="flex items-center gap-1 text-[#2c2c2a] dark:text-[#FFD849]">
-                    <Terminal className="h-3.5 w-3.5" /> Workspace: goldlabelapps/nx-workspace
-                  </span>
-                  <span className="flex items-center gap-1 text-[#364450] dark:text-amber-300">
-                    <Code2 className="h-3.5 w-3.5" /> Stack: Next.js 16 + React 19
-                  </span>
-                </div>
-                <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
-                  <ShieldCheck className="h-3.5 w-3.5" /> Uberedux State Sync: Connected
+        {/* Hero Interactive Monorepo Console Showcase Frame */}
+        <div className="mt-14 sm:mt-20 max-w-5xl mx-auto text-left">
+          <div className="rounded-3xl border border-black/10 dark:border-white/15 bg-gradient-to-b from-white to-neutral-50 dark:from-[#2d3943] dark:to-[#252f38] shadow-2xl shadow-[#364450]/10 dark:shadow-black/80 overflow-hidden">
+            {/* Top Window Bar */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-black/5 dark:border-white/10 bg-neutral-100/70 dark:bg-[#1f262d]/90 backdrop-blur-md">
+              <div className="flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-red-400" />
+                <div className="h-3 w-3 rounded-full bg-[#FFD849]" />
+                <div className="h-3 w-3 rounded-full bg-emerald-400" />
+                <span className="ml-2 text-xs font-mono text-[#5e6d7a] dark:text-[#cbd5e1] hidden sm:inline-block">
+                  nx-monorepo — apps/www & apps/cms
                 </span>
               </div>
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-700 dark:text-emerald-400 font-mono font-medium">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Operational • 4 Cartridges</span>
+              </div>
             </div>
-          </CustomCursorWrapper>
+
+            {/* Showcase Workspace Grid */}
+            <div className="p-6 sm:p-10 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* 1. Web Runtime */}
+                <div className="p-5 rounded-2xl bg-[#f7f9fa] dark:bg-[#1f262d] border border-neutral-200 dark:border-white/10 space-y-3">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#5e6d7a] dark:text-[#cbd5e1]">
+                    <span className="flex items-center gap-1.5 font-bold text-[#2c2c2a] dark:text-white">
+                      <Layers className="h-4 w-4 text-[#FFD849]" /> apps/www
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold">200 OK</span>
+                  </div>
+                  <p className="text-xs text-[#5e6d7a] dark:text-[#cbd5e1]">
+                    Customer Next.js 16 runtime with SSR, ISR, and localized routing.
+                  </p>
+                  <div className="text-[11px] font-mono text-[#5e6d7a] dark:text-[#cbd5e1] pt-2 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
+                    <span>Latency</span>
+                    <span className="font-bold text-[#2c2c2a] dark:text-white">&lt; 14ms</span>
+                  </div>
+                </div>
+
+                {/* 2. Founder Dashboard */}
+                <div className="p-5 rounded-2xl bg-[#f7f9fa] dark:bg-[#1f262d] border border-neutral-200 dark:border-white/10 space-y-3">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#5e6d7a] dark:text-[#cbd5e1]">
+                    <span className="flex items-center gap-1.5 font-bold text-[#2c2c2a] dark:text-white">
+                      <Cpu className="h-4 w-4 text-[#FFD849]" /> apps/cms
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-[#FFD849]/20 text-[#2c2c2a] dark:text-[#FFD849] text-[10px] font-bold">Authenticated</span>
+                  </div>
+                  <p className="text-xs text-[#5e6d7a] dark:text-[#cbd5e1]">
+                    Operational control console with live curation and automated CRUD.
+                  </p>
+                  <div className="text-[11px] font-mono text-[#5e6d7a] dark:text-[#cbd5e1] pt-2 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
+                    <span>Queue Status</span>
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">Idle (Synced)</span>
+                  </div>
+                </div>
+
+                {/* 3. Uberedux State Engine */}
+                <div className="p-5 rounded-2xl bg-[#f7f9fa] dark:bg-[#1f262d] border border-neutral-200 dark:border-white/10 space-y-3">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#5e6d7a] dark:text-[#cbd5e1]">
+                    <span className="flex items-center gap-1.5 font-bold text-[#2c2c2a] dark:text-white">
+                      <Zap className="h-4 w-4 text-[#FFD849]" /> uberedux
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] font-bold">12 Slices</span>
+                  </div>
+                  <p className="text-xs text-[#5e6d7a] dark:text-[#cbd5e1]">
+                    Deterministic global state engine and cross-tab cache replication.
+                  </p>
+                  <div className="text-[11px] font-mono text-[#5e6d7a] dark:text-[#cbd5e1] pt-2 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
+                    <span>Sync Mode</span>
+                    <span className="font-bold text-[#2c2c2a] dark:text-white">Optimistic</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Interactive Terminal Bar */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#1f262d] border border-neutral-700 text-xs font-mono text-neutral-200">
+                <div className="flex items-center gap-2">
+                  <Terminal className="h-4 w-4 text-[#FFD849] shrink-0" />
+                  <span className="text-neutral-400">pnpm run dev</span>
+                  <span className="text-neutral-500">→</span>
+                  <span className="text-emerald-400">Ready in 280ms on port 2026</span>
+                </div>
+                <div className="flex items-center gap-4 text-xs text-[#cbd5e1]">
+                  <span className="flex items-center gap-1">
+                    <Activity className="h-3.5 w-3.5 text-[#FFD849]" /> HMR Active
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" /> Typecheck Clean
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Video Modal Lightbox */}
-      <VideoModal
-        isOpen={isVideoModalOpen}
-        onClose={() => setIsVideoModalOpen(false)}
-        videoUrl={siteConfig.hero.video.youtubeEmbedUrl}
-        title={siteConfig.hero.video.title}
-      />
     </section>
   );
 }

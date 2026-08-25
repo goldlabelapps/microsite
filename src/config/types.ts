@@ -87,9 +87,9 @@ export interface HeroConfig {
   };
   video: {
     enabled: boolean;
-    badge: string;
-    title: string;
-    youtubeEmbedUrl: string;
+    badge?: string;
+    title?: string;
+    youtubeEmbedUrl?: string;
     thumbnailImage?: string;
     hoverText?: string;
   };

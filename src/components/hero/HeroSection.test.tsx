@@ -1,7 +1,6 @@
 import React from "react";
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { HeroSection } from "./HeroSection";
 
 describe("HeroSection component", () => {
@@ -12,14 +11,11 @@ describe("HeroSection component", () => {
     expect(screen.getByText("Sign In to Console")).toBeInTheDocument();
   });
 
-  it("opens video modal when clicking product preview card", async () => {
-    const user = userEvent.setup();
+  it("renders interactive Monorepo Console showcase frame with live workspace cards", () => {
     render(<HeroSection />);
-
-    const videoCard = screen.getByText(/NX° Platform Walkthrough & Architecture/i);
-    await user.click(videoCard);
-
-    // Modal iframe should be in the document
-    expect(screen.getByTitle("NX° Platform Walkthrough & Architecture")).toBeInTheDocument();
+    expect(screen.getByText("apps/www")).toBeInTheDocument();
+    expect(screen.getByText("apps/cms")).toBeInTheDocument();
+    expect(screen.getByText("uberedux")).toBeInTheDocument();
+    expect(screen.getByText(/Operational • 4 Cartridges/i)).toBeInTheDocument();
   });
 });
