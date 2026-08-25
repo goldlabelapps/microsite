@@ -1,7 +1,11 @@
 import React from "react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import HomePage from "./page";
+
+vi.mock("@/components/hero/ParticleCanvas", () => ({
+  ParticleCanvas: () => <div data-testid="mock-particle-canvas" />,
+}));
 
 describe("HomePage assembly", () => {
   it("renders all core microsite sections in order", () => {
