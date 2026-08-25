@@ -1,4 +1,6 @@
 import { execSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
 import os from "node:os";
 import process from "node:process";
 import { log, colors } from "./terminal.js";
@@ -6,9 +8,13 @@ import { log, colors } from "./terminal.js";
 /**
  * Execute command silently and return stdout, or null if failed
  */
-export function execQuiet(command) {
+export function execQuiet(command, timeoutMs = 1500) {
   try {
-    return execSync(command, { encoding: "utf-8", stdio: ["ignore", "pipe", "ignore"] }).trim();
+    return execSync(command, {
+      encoding: "utf-8",
+      stdio: ["ignore", "pipe", "ignore"],
+      timeout: timeoutMs,
+    }).trim();
   } catch {
     return null;
   }
@@ -23,11 +29,11 @@ export function checkEnv() {
   const isNodeSupported = majorNode >= 18;
   const isNodeRecommended = majorNode >= 20;
 
-  // Check package managers
-  const pnpmVersion = execQuiet("pnpm --version");
-  const npmVersion = execQuiet("npm --version");
-  const yarnVersion = execQuiet("yarn --version");
-  const bunVersion = execQuiet("bun --version");
+  // Check package managers with fast timeouts
+  const pnpmVersion = execQuiet("pnpm --version", 1000);
+  const npmVersion = execQuiet("npm --version", 1000);
+  const yarnVersion = execQuiet("yarn --version", 1000);
+  const bunVersion = execQuiet("bun --version", 1000);
 
   // Determine preferred package manager
   let preferredPm = "npm";
@@ -36,12 +42,21 @@ export function checkEnv() {
   else if (yarnVersion) preferredPm = "yarn";
 
   // Check Git
-  const gitVersion = execQuiet("git --version");
-  const gitBranch = execQuiet("git branch --show-current");
-  const gitDirty = execQuiet("git status --porcelain");
+  const gitVersion = execQuiet("git --version", 1000);
+  const gitBranch = gitVersion ? execQuiet("git branch --show-current", 1000) : null;
+  const gitDirty = gitVersion ? execQuiet("git status --porcelain", 1000) : null;
 
-  // Check Playwright
-  const playwrightVersion = execQuiet("npx playwright --version");
+  // Check Playwright from package.json or fast version
+  let playwrightVersion = null;
+  try {
+    const pkgPath = path.resolve(process.cwd(), "node_modules/@playwright/test/package.json");
+    if (fs.existsSync(pkgPath)) {
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
+      playwrightVersion = `Version ${pkg.version}`;
+    }
+  } catch {
+    playwrightVersion = null;
+  }
 
   return {
     os: {
