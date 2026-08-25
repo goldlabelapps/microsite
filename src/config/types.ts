@@ -55,6 +55,11 @@ export interface NavigationConfig {
     href: string;
     icon?: string;
   };
+  secondaryCta?: {
+    label: string;
+    href: string;
+    icon?: string;
+  };
 }
 
 export interface ParticleConfig {
@@ -140,7 +145,7 @@ export interface FeatureItem {
   codeSnippet?: CodeSnippet;
   terminalSnippet?: TerminalSnippet;
   uiMockup?: {
-    type: "agent-manager" | "ide" | "cli" | "sdk";
+    type: "agent-manager" | "ide" | "cli" | "sdk" | "monorepo" | "cartridge";
     accentColor?: string;
   };
 }
@@ -196,7 +201,7 @@ export interface BlogPost {
   id: string;
   title: string;
   date: string;
-  category: "Product" | "Enterprise" | "Model" | "Engineering" | "Announcement";
+  category: "Product" | "Enterprise" | "Model" | "Engineering" | "Announcement" | "Architecture";
   readTime?: string;
   href: string;
   summary?: string;
@@ -213,24 +218,23 @@ export interface BlogsConfig {
   posts: BlogPost[];
 }
 
-export interface DownloadPlatform {
-  os: "macos-silicon" | "macos-intel" | "windows" | "linux";
-  name: string;
-  icon: "apple" | "windows" | "linux";
-  downloadUrl: string;
-  version: string;
-  fileSize?: string;
-  chipDetail?: string;
-}
-
-export interface DownloadSectionConfig {
+export interface AuthCtaConfig {
+  badge: string;
   title: string;
   subtitle: string;
-  platforms: DownloadPlatform[];
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
   cliQuickInstall: {
     label: string;
     command: string;
   };
+  trustBadge: string;
 }
 
 export interface FooterColumn {
@@ -246,9 +250,15 @@ export interface FooterColumn {
 export interface FooterConfig {
   tagline: string;
   brandName: string;
+  address?: string;
+  companyNumber?: string;
   columns: FooterColumn[];
   bottomLinks: Array<{
     label: string;
+    href: string;
+  }>;
+  socialLinks?: Array<{
+    platform: string;
     href: string;
   }>;
   copyright: string;
@@ -264,6 +274,6 @@ export interface SiteConfig {
   useCases: UseCasesConfig;
   solutions: SolutionsConfig;
   blogs: BlogsConfig;
-  downloadSection: DownloadSectionConfig;
+  authCta: AuthCtaConfig;
   footer: FooterConfig;
 }
