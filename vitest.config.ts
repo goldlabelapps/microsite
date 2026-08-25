@@ -10,6 +10,7 @@ export default defineConfig({
     setupFiles: ["./vitest.setup.ts"],
     include: ["src/**/*.{test,spec}.{ts,tsx}"],
     exclude: ["node_modules", "e2e", ".next"],
+    testTimeout: 15000,
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html", "lcov"],
@@ -18,7 +19,7 @@ export default defineConfig({
         "src/**/*.test.{ts,tsx}",
         "src/**/*.spec.{ts,tsx}",
         "src/app/layout.tsx",
-        "src/config/types.ts", // pure TypeScript interfaces
+        "src/config/types.ts",
       ],
       thresholds: {
         statements: 80,

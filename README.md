@@ -38,7 +38,7 @@ npm install
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) to see your microsite live with instant Hot Module Reloading (HMR).
+Open [http://localhost:2026](http://localhost:2026) to see your microsite live with instant Hot Module Reloading (HMR).
 
 ---
 
