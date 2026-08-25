@@ -1,8 +1,57 @@
 # 🚀 Microsite — Google Antigravity Landing Page Template
 
-A pixel-perfect, hyper-polished clone of the [Google Antigravity](https://antigravity.google) product landing page, engineered as a **100% config-driven microsite template** with a **battle-tested, enterprise-grade testing & CI suite**.
+A pixel-perfect, hyper-polished clone of the [Google Antigravity](https://antigravity.google) product landing page, engineered as a **100% config-driven microsite template** with a **battle-tested testing & CI suite** and an **interactive, cross-platform CLI toolchain** ([`@goldlabelapps/cli`](https://www.npmjs.com/package/@goldlabelapps/cli)).
 
 Create a world-class landing page for your SaaS, developer tool, open-source project, or startup in under 2 minutes simply by editing a single configuration file.
+
+---
+
+## ⚡ 60-Second Quickstart
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/goldlabelapps/microsite.git my-product-site
+cd my-product-site
+
+# 2. Run the interactive setup wizard (or ./bin/setup.sh on Unix, bin\setup.cmd on Windows)
+pnpm run setup
+
+# 3. Launch local dev server (default port: 2026)
+pnpm run dev
+```
+
+Open [http://localhost:2026](http://localhost:2026) to see your microsite live with instant Hot Module Reloading (HMR).
+
+---
+
+## 💻 Modular CLI Toolchain (`@goldlabelapps/cli`)
+
+This template includes a zero-dependency, cross-platform interactive CLI script designed for both terminal menus and classic Unix-style command automation.
+
+```
+  ╔═══════════════════════════════════════════════════════════════╗
+  ║   ✦ GOLD LABEL APPS  //  MICROSITE CLI v0.1.1                ║
+  ║   The Autonomous Landing Page & Microsite Toolchain           ║
+  ╚═══════════════════════════════════════════════════════════════╝
+```
+
+### Launching the Interactive Terminal Menu
+```bash
+pnpm run cli
+```
+
+### Available CLI Commands
+
+| Command | Description |
+| :--- | :--- |
+| `pnpm run setup` | Guided project onboarding, dependency install, pnpm build permissions & environment doctor |
+| `pnpm run cli dev` | Start Next.js development server on port 2026 |
+| `pnpm run cli test [type]` | Test runner (`unit`, `watch`, `coverage`, `e2e`, `ui`, `ci`) |
+| `pnpm run cli scaffold` | Interactive code generator (Bento cards, developer use case stories, blog posts) |
+| `pnpm run cli git` | Git branch status and interactive Conventional Commits helper |
+| `pnpm run cli env` | Toolchain diagnostics (Node version, package managers, Git, Playwright) |
+| `pnpm run cli build` | Compiles optimized static production bundle |
+| `pnpm run cli --help` | Displays classic Unix manual synopsis |
 
 ---
 
@@ -21,30 +70,7 @@ Create a world-class landing page for your SaaS, developer tool, open-source pro
 
 ---
 
-## ⚡ 60-Second Quickstart
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/goldlabelapps/microsite.git my-product-site
-cd my-product-site
-```
-
-### 2. Install dependencies
-```bash
-npm install
-```
-
-### 3. Start local development
-```bash
-npm run dev
-```
-Open [http://localhost:2026](http://localhost:2026) to see your microsite live with instant Hot Module Reloading (HMR).
-
----
-
 ## 🧪 Testing Suite & Quality Gate
-
-This template comes equipped with an extensive testing matrix exceeding industry standards:
 
 ```
                   ┌──────────────────────────────────────────────┐
@@ -60,39 +86,18 @@ This template comes equipped with an extensive testing matrix exceeding industry
 └──────────────┘ └──────────────┘            └───────────────────────┘ └──────────────┘
 ```
 
-### Available Test Commands
+### Test Commands
 
 | Command | Description |
 | :--- | :--- |
-| `npm run typecheck` | Validates strict TypeScript compilation without emitting files |
-| `npm run lint` | Runs ESLint with Next.js Core Web Vitals and React rules |
-| `npm test` | Runs the Vitest unit & component test suite |
-| `npm run test:watch` | Starts Vitest in interactive watch mode |
-| `npm run test:coverage` | Generates full V8 test coverage report with thresholds |
-| `npm run test:e2e` | Executes Playwright end-to-end browser test specifications |
-| `npm run test:e2e:ui` | Opens the interactive Playwright Test Runner UI |
-| `npm run ci` | Runs the full pre-commit / pre-merge verification pipeline locally |
-
-### Unit & Component Tests (20 Suites, 60+ Tests)
-- `src/lib/utils.test.ts`: Tailwind class merging & cross-platform OS detection.
-- `src/config/site.config.test.ts`: Schema completeness, valid URLs, platforms, and metadata.
-- `src/components/ui/*`: Button variants/sizes, Card glassmorphism, CustomCursor tracking.
-- `src/components/navigation/*`: Header scroll blur, Dropdown interactions, Context menu SVG copying, Mobile drawer.
-- `src/components/hero/*`: Hero CTAs, Particle canvas animation loop, VideoModal keyboard dismiss.
-- `src/components/showcase/*`: Statement icon badges, Feature explorer tab switching, Use case carousel, Solutions tiers, Blog pagination.
-- `src/components/download/DownloadBanner.test.tsx`: OS recommendation badge, clipboard copy, download triggers.
-- `src/app/page.test.tsx`: Complete root page assembly and hierarchy.
-
-### End-to-End Tests (Playwright)
-- `e2e/landing-page.spec.ts`: Page smoke testing, meta tags, anchor navigation.
-- `e2e/navigation.spec.ts`: Dropdown menus, mobile navigation drawer, logo right-click menu.
-- `e2e/hero-and-video.spec.ts`: Video lightbox trigger, YouTube embed player, ESC dismissal.
-- `e2e/feature-explorer.spec.ts`: Bento tab switching, code snippet viewing, CLI copy button.
-- `e2e/use-cases-and-solutions.spec.ts`: Role-based workflow carousel, video modals, tier CTAs.
-- `e2e/download-flow.spec.ts`: Platform cards, quick installer shell copy, clipboard permissions.
-
-### GitHub Actions CI
-All tests, linting, typechecks, and builds run automatically on every pull request and push to `main` via `.github/workflows/ci.yml`.
+| `pnpm run typecheck` | Validates strict TypeScript compilation without emitting files |
+| `pnpm run lint` | Runs ESLint with Next.js Core Web Vitals and React rules |
+| `pnpm test` | Runs the Vitest unit & component test suite (21 test suites, 71 tests) |
+| `pnpm run test:watch` | Starts Vitest in interactive watch mode |
+| `pnpm run test:coverage` | Generates full V8 test coverage report with thresholds |
+| `pnpm run test:e2e` | Executes Playwright end-to-end browser test specifications |
+| `pnpm run test:e2e:ui` | Opens the interactive Playwright Test Runner UI |
+| `pnpm run ci` | Runs the full pre-commit / pre-merge verification pipeline locally |
 
 ---
 
@@ -280,7 +285,7 @@ To generate pure static HTML/CSS/JS files:
    ```
 2. Build static bundle:
    ```bash
-   npm run build
+   pnpm run build
    ```
 3. Deploy the generated `out/` directory to GitHub Pages, Cloudflare Pages, AWS S3, or Firebase Hosting.
 
@@ -293,6 +298,22 @@ microsite/
 ├── .github/
 │   └── workflows/
 │       └── ci.yml             # GitHub Actions CI Quality Gate
+├── bin/
+│   ├── cli.js                 # Executable CLI script (#!/usr/bin/env node)
+│   ├── setup.sh               # Unix POSIX setup helper
+│   └── setup.cmd              # Windows setup helper
+├── cli/                       # Modular @goldlabelapps/cli core
+│   ├── index.js               # CLI router & interactive loop
+│   ├── terminal.js            # ANSI styling, ASCII banners, prompt builders
+│   ├── env.js                 # Runtime & toolchain diagnostics
+│   ├── cli.test.js            # CLI automated unit test suite
+│   └── commands/
+│       ├── setup.js           # Guided project setup & doctor
+│       ├── dev.js             # Dev server launcher
+│       ├── test.js            # Multi-suite test runner
+│       ├── scaffold.js        # Interactive code & config generator
+│       ├── git.js             # Git workflow & Conventional Commits
+│       └── help.js            # Unix man-style manual page
 ├── e2e/                       # Playwright End-to-End Test Specs
 │   ├── landing-page.spec.ts
 │   ├── navigation.spec.ts
