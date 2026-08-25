@@ -3,7 +3,7 @@ import { banner, colors, log } from "../terminal.js";
 export function showHelp() {
   console.log(banner);
   console.log(`${colors.bold}${colors.brightWhite}NAME${colors.reset}`);
-  console.log(`    ${colors.cyan}microsite / gla${colors.reset} — Gold Label Apps Autonomous Microsite Command Line Tool\n`);
+  console.log(`    ${colors.cyan}microsite / gla${colors.reset} — Goldlabel Autonomous Microsite Command Line Tool\n`);
 
   console.log(`${colors.bold}${colors.brightWhite}SYNOPSIS${colors.reset}`);
   console.log(`    ${colors.bold}pnpm run setup${colors.reset}`);

@@ -73,7 +73,7 @@ Update `package.json` scripts:
 - `SolutionsSection.test.tsx`: developer vs enterprise tier cards, checkmark list rendering, action buttons.
 - `BlogSection.test.tsx`: category tags, dates, publication summaries, pagination next/prev navigation.
 - `DownloadBanner.test.tsx`: email sign-up submission, confetti trigger, CLI bootstrap copy.
-- `Footer.test.tsx`: columns, legal links, Gold Label copyright notice.
+- `Footer.test.tsx`: columns, legal links, Goldlabel copyright notice.
 - `page.test.tsx`: full integration smoke test verifying that all 7 core sections mount cleanly in order.
 
 ---

@@ -79,12 +79,12 @@ describe("siteConfig", () => {
     expect(siteConfig.authCta.primaryCta.label).toContain("Sign Up");
     expect(siteConfig.authCta.secondaryCta.label).toContain("Sign In");
     expect(siteConfig.authCta.cliQuickInstall.command).toContain("npx");
-    expect(siteConfig.authCta.trustBadge).toContain("Gold Label Apps");
+    expect(siteConfig.authCta.trustBadge).toContain("Goldlabel");
   });
 
   it("has comprehensive footer links and copyright with company info", () => {
     expect(siteConfig.footer.columns.length).toBe(4);
     expect(siteConfig.footer.bottomLinks.length).toBeGreaterThan(0);
-    expect(siteConfig.footer.copyright).toContain("Goldlabel Apps Ltd");
+    expect(siteConfig.footer.copyright).toContain("Goldlabel");
   });
 });

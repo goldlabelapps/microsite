@@ -17,18 +17,18 @@ describe("LogoContextMenu", () => {
 
   it("renders NX logo link", () => {
     render(<LogoContextMenu />);
-    expect(screen.getByLabelText("NX° by Gold Label Apps")).toBeInTheDocument();
+    expect(screen.getByLabelText("NX° by Goldlabel")).toBeInTheDocument();
   });
 
   it("opens context menu on right click and handles SVG copying", () => {
     render(<LogoContextMenu />);
 
-    const logoLink = screen.getByLabelText("NX° by Gold Label Apps");
+    const logoLink = screen.getByLabelText("NX° by Goldlabel");
     const container = logoLink.closest("div")!;
     fireEvent.contextMenu(container, { clientX: 150, clientY: 50 });
 
     expect(screen.getByText(/Copy NX° Logo as SVG/i)).toBeInTheDocument();
-    expect(screen.getByText(/Gold Label Brand Guidelines/i)).toBeInTheDocument();
+    expect(screen.getByText(/Goldlabel Brand Guidelines/i)).toBeInTheDocument();
 
     const copyBtn = screen.getByRole("button", { name: /copy nx° logo as svg/i });
     fireEvent.click(copyBtn);
@@ -43,7 +43,7 @@ describe("LogoContextMenu", () => {
       </div>
     );
 
-    const logoLink = screen.getByLabelText("NX° by Gold Label Apps");
+    const logoLink = screen.getByLabelText("NX° by Goldlabel");
     const container = logoLink.closest("div")!;
     fireEvent.contextMenu(container, { clientX: 100, clientY: 50 });
     expect(screen.getByText(/Copy NX° Logo as SVG/i)).toBeInTheDocument();

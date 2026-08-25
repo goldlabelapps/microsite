@@ -20,7 +20,7 @@ describe("FeatureExplorer component", () => {
     expect(screen.getByRole("button", { name: /apps & packages architecture/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /pluggable cartridges/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /uberedux state engine/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /gold label design system/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /goldlabel design system/i })).toBeInTheDocument();
   });
 
   it("switches to Uberedux state tab and displays terminal snippet with copy button", () => {

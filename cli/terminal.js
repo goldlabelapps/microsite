@@ -32,7 +32,7 @@ export const colors = {
 
 export const banner = `
 ${colors.brightCyan}  ╔═══════════════════════════════════════════════════════════════╗
-  ║   ${colors.bold}${colors.brightWhite}✦ GOLD LABEL APPS${colors.reset}${colors.brightCyan}  //  ${colors.bold}${colors.brightYellow}MICROSITE CLI v0.1.1${colors.reset}${colors.brightCyan}                ║
+  ║   ${colors.bold}${colors.brightWhite}✦ GOLDLABEL${colors.reset}${colors.brightCyan}  //  ${colors.bold}${colors.brightYellow}MICROSITE CLI v0.1.1${colors.reset}${colors.brightCyan}                      ║
   ║   ${colors.gray}The Autonomous Landing Page & Microsite Toolchain${colors.brightCyan}           ║
   ╚═══════════════════════════════════════════════════════════════╝${colors.reset}
 `;

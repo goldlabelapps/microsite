@@ -24,7 +24,7 @@ export function DownloadBanner() {
     e.preventDefault();
     if (!email) return;
     
-    // Trigger celebratory Gold Label particle confetti
+    // Trigger celebratory Goldlabel particle confetti
     confetti({
       particleCount: 80,
       spread: 70,

@@ -26,7 +26,7 @@ test.describe("Navigation & Dropdown Menus", () => {
     // Grant clipboard permissions in browser context
     await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
 
-    const logo = page.getByLabel("NX° by Gold Label Apps").first();
+    const logo = page.getByLabel("NX° by Goldlabel").first();
     await logo.click({ button: "right" });
 
     // Verify context menu options

@@ -8,7 +8,7 @@ test.describe("Landing Page — Core Smoke & Rendering", () => {
     await expect(page).toHaveTitle(/NX°/i);
 
     // Verify header logo
-    const logo = page.getByLabel("NX° by Gold Label Apps");
+    const logo = page.getByLabel("NX° by Goldlabel");
     await expect(logo.first()).toBeVisible();
 
     // Verify hero headline

@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site.config";
 export function NxLogo({ className = "h-7 w-auto" }: { className?: string }) {
   return (
     <div className={`inline-flex items-center gap-2.5 font-bold tracking-tight select-none ${className}`}>
-      {/* Gold Label Hex/Cartridge Icon */}
+      {/* Goldlabel Hex/Cartridge Icon */}
       <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-[#FFD849] shadow-sm text-[#2c2c2a] font-extrabold text-base transition-transform group-hover:scale-105">
         <span>NX</span>
         <span className="absolute -top-1 -right-1 text-xs font-black text-[#364450]">°</span>
@@ -18,7 +18,7 @@ export function NxLogo({ className = "h-7 w-auto" }: { className?: string }) {
           NX<span className="text-[#FFD849] ml-0.5">°</span>
         </span>
         <span className="text-[9px] font-semibold uppercase tracking-wider text-[#5e6d7a] dark:text-[#cbd5e1]/80">
-          Gold Label
+          Goldlabel
         </span>
       </div>
     </div>
@@ -46,7 +46,7 @@ export function LogoContextMenu() {
 
   const handleCopySvg = async () => {
     try {
-      const svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none"><rect width="40" height="40" rx="8" fill="#FFD849"/><text x="8" y="27" font-family="sans-serif" font-weight="900" font-size="20" fill="#2C2C2A">NX</text><text x="32" y="16" font-family="sans-serif" font-weight="900" font-size="12" fill="#364450">°</text><text x="50" y="27" font-family="sans-serif" font-weight="900" font-size="22" fill="#2C2C2A">NX°</text><text x="50" y="38" font-family="sans-serif" font-weight="700" font-size="9" fill="#5E6D7A" letter-spacing="1">GOLD LABEL</text></svg>`;
+      const svgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none"><rect width="40" height="40" rx="8" fill="#FFD849"/><text x="8" y="27" font-family="sans-serif" font-weight="900" font-size="20" fill="#2C2C2A">NX</text><text x="32" y="16" font-family="sans-serif" font-weight="900" font-size="12" fill="#364450">°</text><text x="50" y="27" font-family="sans-serif" font-weight="900" font-size="22" fill="#2C2C2A">NX°</text><text x="50" y="38" font-family="sans-serif" font-weight="700" font-size="9" fill="#5E6D7A" letter-spacing="1">GOLDLABEL</text></svg>`;
       await navigator.clipboard.writeText(svgString);
       setCopied(true);
       setTimeout(() => {
@@ -79,7 +79,7 @@ export function LogoContextMenu() {
         href="/"
         className="group flex items-center py-1 text-neutral-900 dark:text-white hover:opacity-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#FFD849]/50 rounded-lg"
         title="Right click for logo assets"
-        aria-label="NX° by Gold Label Apps"
+        aria-label="NX° by Goldlabel"
       >
         <NxLogo />
       </Link>

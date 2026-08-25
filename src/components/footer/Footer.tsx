@@ -18,7 +18,7 @@ export function Footer() {
             <span className="text-[#2c2c2a] dark:text-neutral-200 font-medium">{siteConfig.footer.tagline}</span>
           </div>
           <div className="text-xs text-[#5e6d7a] dark:text-[#cbd5e1]">
-            {siteConfig.footer.address || "Goldlabel Apps Ltd, UK"}
+            {siteConfig.footer.address || "Goldlabel, UK"}
           </div>
         </div>
 

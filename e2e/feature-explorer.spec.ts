@@ -25,9 +25,9 @@ test.describe("Bento Feature Explorer", () => {
     await expect(featureSection.getByText(/Uberedux active/i)).toBeVisible();
 
     // 4. Switch to Design System
-    const dsTab = featureSection.getByRole("button", { name: /gold label design system/i });
+    const dsTab = featureSection.getByRole("button", { name: /goldlabel design system/i });
     await dsTab.click();
-    await expect(featureSection.getByRole("heading", { name: "Gold Label Design System" })).toBeVisible();
+    await expect(featureSection.getByRole("heading", { name: "Goldlabel Design System" })).toBeVisible();
     await expect(featureSection.getByText(/NX° Design Tokens/i)).toBeVisible();
   });
 });

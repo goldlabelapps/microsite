@@ -1,6 +1,6 @@
 # 🚀 NX° — The Modern Product Platform Microsite
 
-A pixel-perfect, hyper-polished landing page for the **NX° Product Platform** by [Gold Label Apps](https://goldlabel.pro), engineered as a **100% config-driven microsite template** with a **battle-tested testing & CI suite** and an **interactive, cross-platform CLI toolchain** ([`@goldlabelapps/cli`](https://www.npmjs.com/package/@goldlabelapps/cli)).
+A pixel-perfect, hyper-polished landing page for the **NX° Product Platform** by [Goldlabel](https://goldlabel.pro), engineered as a **100% config-driven microsite template** with a **battle-tested testing & CI suite** and an **interactive, cross-platform CLI toolchain** ([`@goldlabelapps/cli`](https://www.npmjs.com/package/@goldlabelapps/cli)).
 
 Create a world-class landing page for your SaaS, developer tool, open-source project, or startup in under 2 minutes simply by editing a single configuration file.
 
@@ -30,7 +30,7 @@ This template includes a zero-dependency, cross-platform interactive CLI script 
 
 ```
   ╔═══════════════════════════════════════════════════════════════╗
-  ║   ✦ GOLD LABEL APPS  //  MICROSITE CLI v0.1.1                ║
+  ║   ✦ GOLDLABEL  //  MICROSITE CLI v0.1.1                      ║
   ║   The Autonomous Landing Page & Microsite Toolchain           ║
   ╚═══════════════════════════════════════════════════════════════╝
 ```

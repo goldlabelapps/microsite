@@ -70,7 +70,7 @@ export function parseArgs(rawArgs) {
 async function runInteractiveMenu(flags) {
   while (true) {
     console.log(banner);
-    const choice = await promptSelect("✦ Gold Label Apps Microsite — Main Menu", MAIN_MENU_OPTIONS);
+    const choice = await promptSelect("✦ Goldlabel Microsite — Main Menu", MAIN_MENU_OPTIONS);
 
     if (choice === "exit") {
       log.info("Goodbye!");

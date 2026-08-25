@@ -6,7 +6,7 @@ import { Header } from "./Header";
 describe("Header component", () => {
   it("renders brand logo and navigation links", () => {
     render(<Header />);
-    expect(screen.getByLabelText("NX° by Gold Label Apps")).toBeInTheDocument();
+    expect(screen.getByLabelText("NX° by Goldlabel")).toBeInTheDocument();
     expect(screen.getByText("Platform")).toBeInTheDocument();
     expect(screen.getByText("Workflows")).toBeInTheDocument();
     expect(screen.getByText("Solutions")).toBeInTheDocument();

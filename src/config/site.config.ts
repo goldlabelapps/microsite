@@ -16,7 +16,7 @@ export const siteConfig: SiteConfig = {
     contextMenu: {
       enabled: true,
       copySvgLabel: "Copy NX° Logo as SVG",
-      guidelinesLabel: "Gold Label Brand Guidelines",
+      guidelinesLabel: "Goldlabel Brand Guidelines",
       guidelinesUrl: "https://goldlabel.pro/brand",
     },
   },
@@ -53,7 +53,7 @@ export const siteConfig: SiteConfig = {
             icon: "Sparkles",
           },
           {
-            title: "Gold Label Design System",
+            title: "Goldlabel Design System",
             description: "Tokenized UI primitives with dark slate and gold aesthetics",
             href: "#features",
             icon: "Layout",
@@ -233,7 +233,7 @@ export const adminCartridge = createCartridge({
       {
         id: "nx-design-system",
         tag: "UI Primitives",
-        title: "Gold Label Design System",
+        title: "Goldlabel Design System",
         description: "Tokenized visual and interaction system featuring custom light and dark themes, slate backgrounds, golden amber accents, and accessible keyboard micro-interactions.",
         badge: "Themed",
         previewType: "interactive-ui",
@@ -313,7 +313,7 @@ export const adminCartridge = createCartridge({
         features: [
           "Complete NX° monorepo architecture",
           "Next.js 16 & React 19 app templates",
-          "Gold Label Design System UI library",
+          "Goldlabel Design System UI library",
           "Uberedux state management engine",
           "Comprehensive Vitest & Playwright testing matrix",
         ],
@@ -349,7 +349,7 @@ export const adminCartridge = createCartridge({
 
   blogs: {
     title: "Platform News & Architecture",
-    subtitle: "Insights, technical updates, and architectural guides from Gold Label Apps.",
+    subtitle: "Insights, technical updates, and architectural guides from Goldlabel.",
     viewAllCta: {
       label: "View All Articles",
       href: "https://goldlabel.pro/docs",
@@ -398,13 +398,13 @@ export const adminCartridge = createCartridge({
       label: "Or bootstrap locally via CLI:",
       command: "npx @goldlabelapps/cli setup",
     },
-    trustBadge: "Gold Label Apps Ltd • Monorepo Architecture • Zero Lock-in • Enterprise-Ready",
+    trustBadge: "Goldlabel • Monorepo Architecture • Zero Lock-in • Enterprise-Ready",
   },
 
   footer: {
     tagline: "Rapidly build, compose, and operate modern web apps.",
     brandName: "NX°",
-    address: "Goldlabel Apps Ltd, 321-323 High Road, Chadwell Heath, Essex RM6 6AX, UK",
+    address: "Goldlabel, 321-323 High Road, Chadwell Heath, Essex RM6 6AX, UK",
     companyNumber: "UK Limited Company 5460545",
     columns: [
       {
@@ -437,7 +437,7 @@ export const adminCartridge = createCartridge({
         ],
       },
       {
-        title: "Gold Label Apps",
+        title: "Goldlabel",
         links: [
           { label: "GitHub", href: "https://github.com/goldlabelapps", external: true },
           { label: "YouTube Channel", href: "https://www.youtube.com/@goldlabelApps", external: true },
@@ -458,6 +458,6 @@ export const adminCartridge = createCartridge({
       { platform: "YouTube", href: "https://www.youtube.com/@goldlabelApps" },
       { platform: "Twitter", href: "https://x.com/goldlabelapps" },
     ],
-    copyright: "© 2026 Goldlabel Apps Ltd (UK Company 5460545). All rights reserved.",
+    copyright: "© 2026 Goldlabel. All rights reserved.",
   },
 };

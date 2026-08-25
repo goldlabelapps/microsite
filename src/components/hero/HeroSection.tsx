@@ -24,7 +24,7 @@ export function HeroSection() {
         {/* Top Feature Pill Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/[0.04] border border-black/10 text-xs text-[#2c2c2a] dark:bg-white/[0.08] dark:border-white/[0.15] dark:text-white backdrop-blur-md mb-8 hover:bg-black/[0.07] dark:hover:bg-white/[0.12] transition-colors cursor-default">
           <span className="flex h-2 w-2 rounded-full bg-[#FFD849] animate-pulse" />
-          <span className="font-semibold">Gold Label Apps</span>
+          <span className="font-semibold">Goldlabel</span>
           <span className="text-neutral-400 dark:text-neutral-400">•</span>
           <span className="text-[#2c2c2a] dark:text-[#FFD849] font-medium flex items-center gap-1">
             <Sparkles className="h-3 w-3 inline text-[#FFD849]" /> Announcing NX° 3.0 Platform
