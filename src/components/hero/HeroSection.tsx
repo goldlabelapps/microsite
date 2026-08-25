@@ -6,12 +6,10 @@ import { ParticleCanvas } from "./ParticleCanvas";
 import { Button } from "@/components/ui/Button";
 import {
   Terminal,
-  Code2,
   ShieldCheck,
   Sparkles,
   Layers,
   Cpu,
-  ArrowRight,
   Activity,
   Zap,
 } from "lucide-react";
