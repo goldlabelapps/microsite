@@ -3,6 +3,13 @@ import { siteConfig } from "./site.config";
 
 describe("siteConfig", () => {
 
+  it("has valid metadata and twitter image asset", () => {
+    expect(siteConfig.metadata.title).toBe("NX°");
+    expect(siteConfig.metadata.twitterImage).toBe("/apps.png");
+    expect(siteConfig.metadata.ogImage).toBe("/apps.png");
+    expect(siteConfig.metadata.twitterHandle).toBe("@goldlabelapps");
+  });
+
   it("has valid brand configuration and logo menu", () => {
     expect(siteConfig.brand.name).toBe("NX°");
     expect(siteConfig.brand.contextMenu.enabled).toBe(true);

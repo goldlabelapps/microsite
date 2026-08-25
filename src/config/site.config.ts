@@ -6,6 +6,8 @@ export const siteConfig: SiteConfig = {
     description: "Compose, and operate multiple web apps from one shared monorepo codebase.",
     siteUrl: "https://microsite.goldlabel.pro",
     twitterHandle: "@goldlabelapps",
+    twitterImage: "/apps.png",
+    ogImage: "/apps.png",
     themeColor: "#364450",
   },
 

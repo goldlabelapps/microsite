@@ -41,5 +41,9 @@ test.describe("Landing Page — Core Smoke & Rendering", () => {
     // Verify apple touch icon link
     const appleIcon = page.locator("link[rel='apple-touch-icon']");
     await expect(appleIcon).toHaveAttribute("href", "/apple-touch-icon.png");
+
+    // Verify twitter image & og image
+    const twitterImg = page.locator("meta[name='twitter:image']");
+    await expect(twitterImg).toHaveAttribute("content", /apps\.png/);
   });
 });
