@@ -3,6 +3,7 @@ export interface SiteMetadata {
   description: string;
   siteUrl: string;
   ogImage?: string;
+  twitterImage?: string;
   twitterHandle?: string;
   themeColor?: string;
 }
