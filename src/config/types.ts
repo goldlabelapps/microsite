@@ -264,9 +264,33 @@ export interface FooterConfig {
   copyright: string;
 }
 
+export interface PwaIcon {
+  src: string;
+  sizes: string;
+  type: string;
+  purpose?: string;
+}
+
+export interface PwaConfig {
+  enabled: boolean;
+  name: string;
+  shortName: string;
+  description: string;
+  startUrl: string;
+  scope: string;
+  display: "standalone" | "fullscreen" | "minimal-ui" | "browser";
+  orientation: "any" | "natural" | "landscape" | "portrait";
+  themeColor: string;
+  backgroundColor: string;
+  appleTouchIcon?: string;
+  favicon?: string;
+  icons: PwaIcon[];
+}
+
 export interface SiteConfig {
   metadata: SiteMetadata;
   brand: BrandConfig;
+  pwa: PwaConfig;
   navigation: NavigationConfig;
   hero: HeroConfig;
   statement: StatementConfig;

@@ -1,14 +1,35 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { siteConfig } from "@/config/site.config";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/footer/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
 
+export const viewport: Viewport = {
+  themeColor: siteConfig.pwa.themeColor,
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   title: siteConfig.metadata.title,
   description: siteConfig.metadata.description,
   metadataBase: new URL(siteConfig.metadata.siteUrl),
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: siteConfig.pwa.shortName,
+  },
+  icons: {
+    icon: [
+      { url: siteConfig.pwa.favicon || "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: siteConfig.pwa.appleTouchIcon || "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: siteConfig.metadata.title,
     description: siteConfig.metadata.description,
@@ -21,9 +42,6 @@ export const metadata: Metadata = {
     title: siteConfig.metadata.title,
     description: siteConfig.metadata.description,
     creator: siteConfig.metadata.twitterHandle,
-  },
-  icons: {
-    icon: "https://goldlabel.pro/favicons/favicon_light.png",
   },
 };
 

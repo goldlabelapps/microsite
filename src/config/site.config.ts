@@ -21,6 +21,35 @@ export const siteConfig: SiteConfig = {
     },
   },
 
+  pwa: {
+    enabled: true,
+    name: "NX° by Goldlabel",
+    shortName: "NX°",
+    description: "Compose, and operate multiple web apps from one shared monorepo codebase.",
+    startUrl: "/",
+    scope: "/",
+    display: "standalone",
+    orientation: "portrait",
+    themeColor: "#FFD849",
+    backgroundColor: "#364450",
+    appleTouchIcon: "/apple-touch-icon.png",
+    favicon: "/favicon.svg",
+    icons: [
+      {
+        src: "/favicon.svg",
+        sizes: "any",
+        type: "image/svg+xml",
+        purpose: "any",
+      },
+      {
+        src: "/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+        purpose: "maskable",
+      },
+    ],
+  },
+
   navigation: {
     remoteControlBadge: {
       enabled: true,
