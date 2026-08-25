@@ -7,3 +7,22 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Custom Workflows & Agent Rules
+
+### `/push` Workflow
+When the user types `/push` or asks to push and create a PR:
+1. **Execute CI Quality Gate locally**:
+   - `npm run typecheck`
+   - `npm run lint`
+   - `npm test`
+   - `npm run build`
+   - `npx playwright test --project=chromium`
+2. **Halt on Failure**: If any step fails, do not push or raise a PR. Fix or report issues immediately.
+3. **Branch Targeting & PR**:
+   - Stage and commit uncommitted changes.
+   - Push current branch to remote origin.
+   - If the current branch is anything other than `staging`, target PR base is `staging`.
+   - If the current branch is `staging`, target PR base is `master`.
+   - Execute `gh pr create` or output the direct GitHub comparison link.
+

@@ -8,6 +8,7 @@ import { runDev } from "./commands/dev.js";
 import { runTest } from "./commands/test.js";
 import { runScaffold } from "./commands/scaffold.js";
 import { runGit } from "./commands/git.js";
+import { runPushAndPr } from "./commands/push.js";
 
 const VERSION = "0.1.1";
 
@@ -15,6 +16,7 @@ const MAIN_MENU_OPTIONS = [
   { label: "🚀 Project Setup & Doctor", value: "setup", desc: "Guided onboarding & environment verification" },
   { label: "⚡ Launch Dev Server", value: "dev", desc: "Start Next.js local server on port 2026" },
   { label: "🧪 Run Test Suites", value: "test", desc: "Vitest, Coverage, Playwright E2E, Quality Gate" },
+  { label: "🛡️  Run CI & Push PR (/push)", value: "push", desc: "Run full CI quality gate, push & raise PR to staging/master" },
   { label: "🏗️  Scaffold Content & Code", value: "scaffold", desc: "Interactive builder for Bento cards, use cases, blogs" },
   { label: "🌿 Git Workflow & Commits", value: "git", desc: "Branch status, Conventional Commits helper" },
   { label: "🔧 Toolchain Diagnostics", value: "env", desc: "Node, package manager, and platform diagnostics" },
@@ -87,6 +89,11 @@ async function runInteractiveMenu(flags) {
       case "test":
         await runTest(null, { ...flags, interactive: true });
         break;
+      case "push":
+      case "pr":
+      case "ci":
+        await runPushAndPr({ ...flags, interactive: true });
+        break;
       case "scaffold":
         await runScaffold(null, { ...flags, interactive: true });
         break;
@@ -153,6 +160,12 @@ export async function runCli(rawArgs = process.argv.slice(2)) {
 
     case "test":
       await runTest(subcommand, flags);
+      break;
+
+    case "push":
+    case "pr":
+    case "ci":
+      await runPushAndPr(flags);
       break;
 
     case "scaffold":

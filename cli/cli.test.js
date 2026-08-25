@@ -69,6 +69,11 @@ describe("CLI Non-Interactive Command Dispatcher", () => {
     expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("[DRY-RUN]"));
   });
 
+  it("supports dry-run on push command with CI quality gate", async () => {
+    await runCli(["push", "--dry-run", "--quiet", "--yes"]);
+    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining("[DRY-RUN]"));
+  });
+
   it("handles unknown commands gracefully", async () => {
     const errorSpy = vi.spyOn(console, "log").mockImplementation(() => {});
     await runCli(["unknown-command"]);

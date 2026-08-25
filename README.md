@@ -47,6 +47,7 @@ pnpm run cli
 | `pnpm run setup` | Guided project onboarding, dependency install, pnpm build permissions & environment doctor |
 | `pnpm run cli dev` | Start Next.js development server on port 2026 |
 | `pnpm run cli test [type]` | Test runner (`unit`, `watch`, `coverage`, `e2e`, `ui`, `ci`) |
+| `pnpm run push` (or `/push`) | Runs full CI Quality Gate locally, commits changes, and raises PR to `staging` (or `master` if on staging) |
 | `pnpm run cli scaffold` | Interactive code generator (Bento cards, developer use case stories, blog posts) |
 | `pnpm run cli git` | Git branch status and interactive Conventional Commits helper |
 | `pnpm run cli env` | Toolchain diagnostics (Node version, package managers, Git, Playwright) |
