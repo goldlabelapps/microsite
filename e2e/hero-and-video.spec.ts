@@ -5,14 +5,14 @@ test.describe("Hero & Video Modal Showcase", () => {
     await page.goto("/");
 
     // Locate product video card
-    const videoCard = page.getByText(/Google Antigravity Launch & Walkthrough/i);
+    const videoCard = page.getByText(/NX° Platform Walkthrough & Architecture/i);
     await expect(videoCard).toBeVisible();
 
     // Click to open modal
     await videoCard.click();
 
     // Verify modal dialog & YouTube iframe
-    const modalIframe = page.locator("iframe[title='Google Antigravity Launch & Walkthrough']");
+    const modalIframe = page.locator("iframe[title='NX° Platform Walkthrough & Architecture']");
     await expect(modalIframe).toBeVisible();
 
     // Close modal via close button
@@ -24,10 +24,10 @@ test.describe("Hero & Video Modal Showcase", () => {
   test("closes video modal when ESC key is pressed", async ({ page }) => {
     await page.goto("/");
 
-    const videoCard = page.getByText(/Google Antigravity Launch & Walkthrough/i);
+    const videoCard = page.getByText(/NX° Platform Walkthrough & Architecture/i);
     await videoCard.click();
 
-    const modalIframe = page.locator("iframe[title='Google Antigravity Launch & Walkthrough']");
+    const modalIframe = page.locator("iframe[title='NX° Platform Walkthrough & Architecture']");
     await expect(modalIframe).toBeVisible();
 
     // Press Escape key

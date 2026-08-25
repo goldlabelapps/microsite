@@ -6,10 +6,10 @@ import { Footer } from "./Footer";
 describe("Footer component", () => {
   it("renders brand tagline, columns and bottom legal links", () => {
     render(<Footer />);
-    expect(screen.getByText(/Experience liftoff with the next-gen agent platform/i)).toBeInTheDocument();
-    expect(screen.getByText("Product")).toBeInTheDocument();
-    expect(screen.getByText("Resources")).toBeInTheDocument();
-    expect(screen.getAllByText("About Google").length).toBeGreaterThan(0);
-    expect(screen.getByText(/© 2026 Google LLC/i)).toBeInTheDocument();
+    expect(screen.getByText(/Rapidly build, compose, and operate modern web apps/i)).toBeInTheDocument();
+    expect(screen.getByText("Platform")).toBeInTheDocument();
+    expect(screen.getByText("Documentation")).toBeInTheDocument();
+    expect(screen.getByText("Gold Label Apps")).toBeInTheDocument();
+    expect(screen.getByText(/© 2026 Goldlabel Apps Ltd/i)).toBeInTheDocument();
   });
 });

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     creator: siteConfig.metadata.twitterHandle,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "https://goldlabel.pro/favicons/favicon_dark.png",
   },
 };
 
@@ -38,7 +38,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,slnt,wdth,wght,ROND@8..144,-10..0,25..150,400..700,0..100&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
         {/* Anti-FOUC inline script: default to light theme unless explicitly stored as dark */}
@@ -48,7 +48,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-neutral-900 dark:bg-[#090a0d] dark:text-neutral-100 antialiased selection:bg-blue-500/25 selection:text-blue-600 dark:selection:bg-blue-500/30 dark:selection:text-white font-sans transition-colors duration-200">
+      <body className="min-h-screen flex flex-col bg-white text-[#2c2c2a] dark:bg-[#364450] dark:text-white antialiased selection:bg-[#FFD849] selection:text-[#2c2c2a] font-sans transition-colors duration-200">
         <ThemeProvider>
           <Header />
           <main className="flex-1 w-full">{children}</main>

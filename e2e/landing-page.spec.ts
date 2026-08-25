@@ -5,30 +5,29 @@ test.describe("Landing Page — Core Smoke & Rendering", () => {
     await page.goto("/");
 
     // Verify page title
-    await expect(page).toHaveTitle(/Google Antigravity/i);
+    await expect(page).toHaveTitle(/NX°/i);
 
     // Verify header logo
-    const logo = page.locator("svg[aria-label='Google Antigravity']");
+    const logo = page.getByLabel("NX° by Gold Label Apps");
     await expect(logo.first()).toBeVisible();
 
     // Verify hero headline
     const headline = page.locator("h1");
-    await expect(headline).toContainText(/Experience liftoff/i);
+    await expect(headline).toContainText(/Build and operate web apps from one unified platform/i);
 
     // Verify core sections exist on the page
-    await expect(page.locator("text=Google Antigravity is our agentic development platform")).toBeVisible();
-    await expect(page.locator("text=Built for developers for the agent-first era").first()).toBeVisible();
-    await expect(page.locator("text=Download Google Antigravity").first()).toBeVisible();
+    await expect(page.locator("text=NX° is not just a collection of apps").first()).toBeVisible();
+    await expect(page.locator("text=Tailored for the Modern Development Team").first()).toBeVisible();
+    await expect(page.locator("text=Ready to Build and Scale with NX°?").first()).toBeVisible();
   });
 
-  test("smoothly scrolls to sections when navigation anchors are clicked", async ({ page }) => {
+  test("smoothly navigates to Sign In / Sign Up portals", async ({ page }) => {
     await page.goto("/");
 
-    // Click "Explore use cases" in hero
-    const exploreBtn = page.getByRole("link", { name: /explore use cases/i });
-    await exploreBtn.click();
+    const signUpBtn = page.getByRole("link", { name: /^sign up free$/i }).first();
+    await expect(signUpBtn).toBeVisible();
 
-    // Verify target section is in viewport or URL hash updated
-    await expect(page).toHaveURL(/#use-cases/);
+    const signInBtn = page.getByRole("link", { name: /^sign in to console$/i }).first();
+    await expect(signInBtn).toBeVisible();
   });
 });

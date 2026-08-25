@@ -17,19 +17,19 @@ describe("FeatureExplorer component", () => {
 
   it("renders feature tabs and default active preview", () => {
     render(<FeatureExplorer />);
-    expect(screen.getByRole("button", { name: /antigravity 2.0/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /antigravity cli/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /antigravity ide/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /antigravity sdk/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /apps & packages architecture/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /pluggable cartridges/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /uberedux state engine/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /gold label design system/i })).toBeInTheDocument();
   });
 
-  it("switches to CLI tab and displays terminal snippet with copy button", () => {
+  it("switches to Uberedux state tab and displays terminal snippet with copy button", () => {
     render(<FeatureExplorer />);
 
-    const cliTab = screen.getByRole("button", { name: /antigravity cli/i });
-    fireEvent.click(cliTab);
+    const ubereduxTab = screen.getByRole("button", { name: /uberedux state engine/i });
+    fireEvent.click(ubereduxTab);
 
-    expect(screen.getByText(/Refactor auth middleware to use Ed25519 tokens/i)).toBeInTheDocument();
+    expect(screen.getByText(/Uberedux active/i)).toBeInTheDocument();
 
     const copyBtns = screen.getAllByTitle(/copy command/i);
     expect(copyBtns.length).toBeGreaterThan(0);
@@ -37,13 +37,13 @@ describe("FeatureExplorer component", () => {
     expect(writeTextMock).toHaveBeenCalled();
   });
 
-  it("switches to SDK tab and displays Python code snippet", () => {
+  it("switches to Cartridges tab and displays TypeScript code snippet", () => {
     render(<FeatureExplorer />);
 
-    const sdkTab = screen.getByRole("button", { name: /antigravity sdk/i });
-    fireEvent.click(sdkTab);
+    const cartridgeTab = screen.getByRole("button", { name: /pluggable cartridges/i });
+    fireEvent.click(cartridgeTab);
 
-    expect(screen.getByText(/from antigravity import Agent/i)).toBeInTheDocument();
+    expect(screen.getByText(/createCartridge/i)).toBeInTheDocument();
 
     const copyBtn = screen.getByRole("button", { name: /copy code/i });
     fireEvent.click(copyBtn);

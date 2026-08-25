@@ -15,9 +15,9 @@ describe("MobileMenu component", () => {
     await user.click(toggleBtn);
 
     // Should reveal links
-    expect(screen.getByText("Products")).toBeInTheDocument();
-    expect(screen.getByText("Use Cases")).toBeInTheDocument();
-    expect(screen.getByText("Pricing")).toBeInTheDocument();
+    expect(screen.getByText("Platform")).toBeInTheDocument();
+    expect(screen.getByText("Workflows")).toBeInTheDocument();
+    expect(screen.getByText("Solutions")).toBeInTheDocument();
   });
 
   it("expands accordion subsections when tapped", async () => {
@@ -26,10 +26,10 @@ describe("MobileMenu component", () => {
 
     await user.click(screen.getByLabelText(/toggle navigation menu/i));
 
-    const productsAccordion = screen.getByRole("button", { name: /^products/i });
-    await user.click(productsAccordion);
+    const platformAccordion = screen.getByRole("button", { name: /^platform/i });
+    await user.click(platformAccordion);
 
-    expect(screen.getByText("Antigravity 2.0")).toBeInTheDocument();
-    expect(screen.getByText("Antigravity CLI")).toBeInTheDocument();
+    expect(screen.getByText("NX° Monorepo Core")).toBeInTheDocument();
+    expect(screen.getByText("Pluggable Cartridges")).toBeInTheDocument();
   });
 });

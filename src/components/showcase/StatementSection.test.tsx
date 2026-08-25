@@ -7,8 +7,8 @@ describe("StatementSection component", () => {
   it("renders the central vision statement and floating badges", () => {
     render(<StatementSection />);
     expect(
-      screen.getByText(/Google Antigravity is our agentic development platform/i)
+      screen.getByText(/NX° is not just a collection of apps/i)
     ).toBeInTheDocument();
-    expect(screen.getByText("Agent-First Development")).toBeInTheDocument();
+    expect(screen.getByText("Architecture & Philosophy")).toBeInTheDocument();
   });
 });

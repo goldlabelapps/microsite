@@ -3,28 +3,36 @@
 @layer base {
   :root {
     --background: #ffffff;
-    --background-secondary: #f8f9fa;
-    --foreground: #1f2937;
-    --foreground-muted: #4b5563;
+    --background-secondary: #f7f9fa;
+    --paper: #ffffff;
+    --primary: #FFD849;
+    --primary-hover: #f0c930;
+    --secondary: #364450;
+    --foreground: #2c2c2a;
+    --foreground-muted: #5e6d7a;
     --card-bg: #ffffff;
-    --card-border: rgba(0, 0, 0, 0.08);
+    --card-border: rgba(54, 68, 80, 0.12);
   }
 
   .dark {
-    --background: #090a0d;
-    --background-secondary: #0e1017;
-    --foreground: #f2f3f5;
-    --foreground-muted: #9ca3af;
-    --card-bg: #13151b;
-    --card-border: rgba(255, 255, 255, 0.08);
+    --background: #364450;
+    --background-secondary: #2c3741;
+    --paper: #364450;
+    --primary: #ffd849;
+    --primary-hover: #ffe270;
+    --secondary: #ffd849;
+    --foreground: #ffffff;
+    --foreground-muted: #cbd5e1;
+    --card-bg: #2d3943;
+    --card-border: rgba(255, 216, 73, 0.22);
   }
 
   * {
-    border-color: rgba(0, 0, 0, 0.08);
+    border-color: rgba(54, 68, 80, 0.15);
   }
 
   .dark * {
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 216, 73, 0.18);
   }
 
   html {
@@ -32,7 +40,7 @@
     color-scheme: light;
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Google Sans Flex", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
   }
 
   html.dark {
@@ -44,7 +52,7 @@
     color: var(--foreground);
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
-    font-family: "Google Sans Flex", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
@@ -53,43 +61,43 @@
   }
 
   ::selection {
-    background-color: rgba(49, 134, 255, 0.25);
-    color: #1a73e8;
+    background-color: #FFD849;
+    color: #2c2c2a;
   }
 
   .dark ::selection {
-    background-color: rgba(49, 134, 255, 0.35);
-    color: #ffffff;
+    background-color: #ffd849;
+    color: #2c2c2a;
   }
 }
 
-/* Custom smooth scrollbar */
+/* Gold Label Custom Smooth Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f3f4;
+  background: #f1f3f5;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #090a0d;
+  background: #2c3741;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dadce0;
+  background: #d1d5db;
   border-radius: 4px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #232733;
+  background: #4a5d6e;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #bdc1c6;
+  background: #9ca3af;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #32384a;
+  background: #ffd849;
 }

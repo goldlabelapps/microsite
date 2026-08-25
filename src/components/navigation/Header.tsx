@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Rocket } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 import { LogoContextMenu } from "./LogoContextMenu";
 import { DropdownMenu } from "./DropdownMenu";
@@ -28,7 +28,7 @@ export function Header() {
       className={cn(
         "fixed top-0 inset-x-0 z-40 transition-all duration-300",
         scrolled
-          ? "bg-white/85 dark:bg-[#090a0d]/85 backdrop-blur-xl border-b border-black/[0.06] dark:border-white/[0.08] shadow-sm dark:shadow-lg dark:shadow-black/20 py-2.5"
+          ? "bg-white/90 dark:bg-[#364450]/90 backdrop-blur-xl border-b border-black/[0.06] dark:border-white/[0.12] shadow-sm py-2.5"
           : "bg-transparent py-4"
       )}
     >
@@ -48,7 +48,9 @@ export function Header() {
                 <Link
                   key={idx}
                   href={item.href || "#"}
-                  className="px-3.5 py-1.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] dark:text-neutral-300 dark:hover:text-white dark:hover:bg-white/5 rounded-full transition-colors"
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noreferrer" : undefined}
+                  className="px-3.5 py-1.5 text-sm font-medium text-[#5e6d7a] hover:text-[#2c2c2a] hover:bg-black/[0.04] dark:text-[#cbd5e1] dark:hover:text-white dark:hover:bg-white/10 rounded-full transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -58,17 +60,17 @@ export function Header() {
         </div>
 
         {/* Right Action CTAs */}
-        <div className="flex items-center gap-2.5">
-          {/* Remote Control Pill */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Studio Badge */}
           {siteConfig.navigation.remoteControlBadge?.enabled && (
             <a
               href={siteConfig.navigation.remoteControlBadge.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium text-blue-700 bg-blue-500/10 hover:bg-blue-500/15 border border-blue-500/20 dark:text-blue-300 dark:bg-blue-500/10 dark:hover:bg-blue-500/20 transition-all duration-200"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-[#2c2c2a] bg-[#FFD849]/20 hover:bg-[#FFD849]/30 border border-[#FFD849]/40 dark:text-[#FFD849] dark:bg-[#FFD849]/10 dark:hover:bg-[#FFD849]/20 transition-all duration-200"
               title={siteConfig.navigation.remoteControlBadge.tooltip}
             >
-              <Rocket className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400 animate-pulse" />
+              <Sparkles className="h-3.5 w-3.5 text-[#e5c03e] dark:text-[#FFD849]" />
               <span>{siteConfig.navigation.remoteControlBadge.label}</span>
             </a>
           )}
@@ -76,15 +78,25 @@ export function Header() {
           {/* Theme Toggle Button */}
           <ThemeToggle />
 
-          {/* Primary Download Button */}
+          {/* Sign In CTA */}
+          {siteConfig.navigation.secondaryCta && (
+            <Link
+              href={siteConfig.navigation.secondaryCta.href}
+              className="hidden sm:inline-flex items-center px-3.5 py-1.5 text-xs font-semibold text-[#2c2c2a] dark:text-white hover:text-neutral-900 dark:hover:text-[#FFD849] transition-colors"
+            >
+              {siteConfig.navigation.secondaryCta.label}
+            </Link>
+          )}
+
+          {/* Primary Sign Up CTA */}
           <Button
             href={siteConfig.navigation.primaryCta.href}
             variant="primary"
             size="sm"
-            className="hidden sm:inline-flex"
-            icon="Download"
+            className="hidden sm:inline-flex shadow-sm font-bold"
           >
-            {siteConfig.navigation.primaryCta.label}
+            <span>{siteConfig.navigation.primaryCta.label}</span>
+            <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
           </Button>
 
           {/* Mobile Menu Trigger */}

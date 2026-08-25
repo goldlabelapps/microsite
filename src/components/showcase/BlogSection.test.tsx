@@ -7,8 +7,8 @@ import { BlogSection } from "./BlogSection";
 describe("BlogSection component", () => {
   it("renders blog posts with category tags and dates", () => {
     render(<BlogSection />);
-    expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(/Latest Blogs/i);
-    expect(screen.getByText("Improving the Version Control Experience")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2 })).toHaveTextContent(/Platform News & Architecture/i);
+    expect(screen.getByText("NX° Executive Overview: Composing Ambitious Products Efficiently")).toBeInTheDocument();
   });
 
   it("navigates pagination slider", async () => {

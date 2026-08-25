@@ -15,22 +15,22 @@ describe("LogoContextMenu", () => {
     });
   });
 
-  it("renders Google Antigravity logo link", () => {
+  it("renders NX logo link", () => {
     render(<LogoContextMenu />);
-    expect(screen.getByLabelText("Google Antigravity")).toBeInTheDocument();
+    expect(screen.getByLabelText("NX° by Gold Label Apps")).toBeInTheDocument();
   });
 
   it("opens context menu on right click and handles SVG copying", () => {
     render(<LogoContextMenu />);
 
-    const logoLink = screen.getByLabelText("Google Antigravity");
+    const logoLink = screen.getByLabelText("NX° by Gold Label Apps");
     const container = logoLink.closest("div")!;
     fireEvent.contextMenu(container, { clientX: 150, clientY: 50 });
 
-    expect(screen.getByText(/Copy Logo as SVG/i)).toBeInTheDocument();
-    expect(screen.getByText(/Press Guidelines/i)).toBeInTheDocument();
+    expect(screen.getByText(/Copy NX° Logo as SVG/i)).toBeInTheDocument();
+    expect(screen.getByText(/Gold Label Brand Guidelines/i)).toBeInTheDocument();
 
-    const copyBtn = screen.getByRole("button", { name: /copy logo as svg/i });
+    const copyBtn = screen.getByRole("button", { name: /copy nx° logo as svg/i });
     fireEvent.click(copyBtn);
     expect(writeTextMock).toHaveBeenCalled();
   });
@@ -43,13 +43,13 @@ describe("LogoContextMenu", () => {
       </div>
     );
 
-    const logoLink = screen.getByLabelText("Google Antigravity");
+    const logoLink = screen.getByLabelText("NX° by Gold Label Apps");
     const container = logoLink.closest("div")!;
     fireEvent.contextMenu(container, { clientX: 100, clientY: 50 });
-    expect(screen.getByText(/Copy Logo as SVG/i)).toBeInTheDocument();
+    expect(screen.getByText(/Copy NX° Logo as SVG/i)).toBeInTheDocument();
 
     // Click outside
     fireEvent.mouseDown(screen.getByTestId("outside"));
-    expect(screen.queryByText(/Copy Logo as SVG/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Copy NX° Logo as SVG/i)).not.toBeInTheDocument();
   });
 });

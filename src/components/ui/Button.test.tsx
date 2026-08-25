@@ -9,7 +9,7 @@ describe("Button component", () => {
     render(<Button>Click me</Button>);
     const btn = screen.getByRole("button", { name: /click me/i });
     expect(btn).toBeInTheDocument();
-    expect(btn).toHaveClass("bg-[#1a73e8]");
+    expect(btn).toHaveClass("bg-[#FFD849]");
   });
 
   it("handles clicks appropriately", async () => {

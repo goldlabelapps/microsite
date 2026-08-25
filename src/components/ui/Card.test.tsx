@@ -14,7 +14,7 @@ describe("Card component", () => {
     expect(screen.getByText("Glass Card")).toHaveClass("backdrop-blur-xl");
 
     rerender(<Card variant="glow">Glow Card</Card>);
-    expect(screen.getByText("Glow Card")).toHaveClass("shadow-blue-500/5");
+    expect(screen.getByText("Glow Card")).toHaveClass("border-[#FFD849]/30");
 
     rerender(<Card variant="bordered">Bordered Card</Card>);
     expect(screen.getByText("Bordered Card")).toHaveClass("border-neutral-200");

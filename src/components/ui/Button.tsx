@@ -61,17 +61,17 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#1a73e8] hover:bg-[#1557b0] text-white shadow-sm hover:shadow-blue-500/25 active:scale-[0.98]",
+      "bg-[#FFD849] hover:bg-[#f0c930] text-[#2c2c2a] font-bold shadow-md hover:shadow-[#FFD849]/30 active:scale-[0.98]",
     secondary:
-      "bg-black/[0.04] hover:bg-black/[0.08] text-neutral-800 border border-black/5 dark:bg-neutral-800/80 dark:hover:bg-neutral-700/90 dark:text-neutral-200 dark:border-neutral-700/60 backdrop-blur-md active:scale-[0.98]",
+      "bg-black/[0.04] hover:bg-black/[0.08] text-[#2c2c2a] border border-black/5 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-white/10 backdrop-blur-md active:scale-[0.98]",
     outline:
-      "border border-neutral-300 hover:border-neutral-400 bg-transparent text-neutral-800 hover:bg-neutral-100 dark:border-neutral-700 dark:hover:border-neutral-500 dark:text-neutral-200 dark:hover:bg-white/5 active:scale-[0.98]",
+      "border border-neutral-300 hover:border-neutral-400 bg-transparent text-[#2c2c2a] hover:bg-black/[0.04] dark:border-white/20 dark:hover:border-[#FFD849] dark:text-white dark:hover:bg-white/5 active:scale-[0.98]",
     ghost:
-      "bg-transparent text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] dark:text-neutral-300 dark:hover:text-white dark:hover:bg-white/5",
+      "bg-transparent text-[#5e6d7a] hover:text-[#2c2c2a] hover:bg-black/[0.04] dark:text-[#cbd5e1] dark:hover:text-white dark:hover:bg-white/5",
     glass:
-      "bg-white/80 hover:bg-white text-neutral-800 backdrop-blur-lg border border-black/5 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-white/10 shadow-lg active:scale-[0.98]",
+      "bg-white/80 hover:bg-white text-[#2c2c2a] backdrop-blur-lg border border-black/5 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-white/10 shadow-lg active:scale-[0.98]",
     pill:
-      "bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 font-semibold shadow-md active:scale-[0.98]",
+      "bg-[#2c2c2a] text-[#FFD849] hover:bg-[#1f1f1d] dark:bg-[#FFD849] dark:text-[#2c2c2a] dark:hover:bg-[#f0c930] font-bold shadow-md active:scale-[0.98]",
   };
 
   const classes = cn(baseStyles, sizeStyles[size], variantStyles[variant], className);

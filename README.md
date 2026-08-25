@@ -1,6 +1,6 @@
-# 🚀 Microsite — Google Antigravity Landing Page Template
+# 🚀 NX° — The Modern Product Platform Microsite
 
-A pixel-perfect, hyper-polished clone of the [Google Antigravity](https://antigravity.google) product landing page, engineered as a **100% config-driven microsite template** with a **battle-tested testing & CI suite** and an **interactive, cross-platform CLI toolchain** ([`@goldlabelapps/cli`](https://www.npmjs.com/package/@goldlabelapps/cli)).
+A pixel-perfect, hyper-polished landing page for the **NX° Product Platform** by [Gold Label Apps](https://goldlabel.pro), engineered as a **100% config-driven microsite template** with a **battle-tested testing & CI suite** and an **interactive, cross-platform CLI toolchain** ([`@goldlabelapps/cli`](https://www.npmjs.com/package/@goldlabelapps/cli)).
 
 Create a world-class landing page for your SaaS, developer tool, open-source project, or startup in under 2 minutes simply by editing a single configuration file.
 

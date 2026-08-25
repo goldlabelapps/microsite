@@ -113,10 +113,10 @@ export async function runScaffold(subcommand, options = {}) {
 
     case "blog": {
       console.log(`\n${colors.bold}${colors.brightWhite}📝 Scaffolding New Blog Article${colors.reset}`);
-      const title = await promptInput("Article Title", "Announcing Antigravity v3.0");
+      const title = await promptInput("Article Title", "Announcing NX° v3.0 Platform");
       const category = await promptInput("Category (Product/Model/Engineering/Enterprise)", "Product");
       const readTime = await promptInput("Read Time", "4 min read");
-      const summary = await promptInput("Summary Paragraph", "Explore breakthrough speed improvements, persistent agent memory, and multi-workspace support.");
+      const summary = await promptInput("Summary Paragraph", "Explore breakthrough speed improvements, modular cartridges, and unified monorepo support.");
       const date = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
       const id = title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
@@ -128,7 +128,7 @@ export async function runScaffold(subcommand, options = {}) {
         readTime: "${readTime}",
         href: "#",
         summary: "${summary}",
-        gradient: "from-blue-500/20 to-indigo-500/20",
+        gradient: "from-amber-500/20 to-slate-500/20",
       },`;
 
       const postsMarker = "    posts: [";
@@ -144,9 +144,9 @@ export async function runScaffold(subcommand, options = {}) {
 
     case "brand": {
       console.log(`\n${colors.bold}${colors.brightWhite}🎨 Rebranding Configuration${colors.reset}`);
-      const name = await promptInput("Product Brand Name", "MyProduct");
-      const tagline = await promptInput("Tagline", "Experience liftoff");
-      const description = await promptInput("SEO Meta Description", "Ship faster with autonomous AI developer intelligence.");
+      const name = await promptInput("Product Brand Name", "NX°");
+      const tagline = await promptInput("Tagline", "Rapidly build, compose, and operate modern web apps");
+      const description = await promptInput("SEO Meta Description", "Modern product platform combining Next.js, cartridges, and shared design systems.");
 
       content = content.replace(/name:\s*"[^"]*"/, `name: "${name}"`);
       content = content.replace(/tagline:\s*"[^"]*"/, `tagline: "${tagline}"`);

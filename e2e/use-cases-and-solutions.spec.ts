@@ -8,9 +8,9 @@ test.describe("Use Cases & Solutions Tiers", () => {
     await expect(useCasesSection).toBeVisible();
 
     // Verify developer roles are rendered
-    await expect(useCasesSection.getByText("Full stack developer").first()).toBeVisible();
-    await expect(useCasesSection.getByText("Enterprise developer").first()).toBeVisible();
-    await expect(useCasesSection.getByText("Frontend developer").first()).toBeVisible();
+    await expect(useCasesSection.getByText("Product Engineers").first()).toBeVisible();
+    await expect(useCasesSection.getByText("Founders & Operators").first()).toBeVisible();
+    await expect(useCasesSection.getByText("Platform Architects").first()).toBeVisible();
 
     // Click on a "View case" video trigger
     const viewCaseBtns = useCasesSection.getByRole("button", { name: /view case/i });
@@ -30,9 +30,9 @@ test.describe("Use Cases & Solutions Tiers", () => {
     const solutionsSection = page.locator("#solutions");
     await expect(solutionsSection).toBeVisible();
 
-    await expect(solutionsSection.getByText("For developers", { exact: true })).toBeVisible();
-    await expect(solutionsSection.getByText("For organizations", { exact: true })).toBeVisible();
-    await expect(solutionsSection.getByRole("link", { name: /download now/i })).toBeVisible();
-    await expect(solutionsSection.getByRole("link", { name: /read more/i })).toBeVisible();
+    await expect(solutionsSection.getByText("For Developers", { exact: true })).toBeVisible();
+    await expect(solutionsSection.getByText("For Organizations", { exact: true })).toBeVisible();
+    await expect(solutionsSection.getByRole("link", { name: /sign up free/i })).toBeVisible();
+    await expect(solutionsSection.getByRole("link", { name: /contact team/i })).toBeVisible();
   });
 });

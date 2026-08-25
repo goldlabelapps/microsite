@@ -6,17 +6,17 @@ import { Header } from "./Header";
 describe("Header component", () => {
   it("renders brand logo and navigation links", () => {
     render(<Header />);
-    expect(screen.getByLabelText("Google Antigravity")).toBeInTheDocument();
-    expect(screen.getByText("Products")).toBeInTheDocument();
-    expect(screen.getByText("Use Cases")).toBeInTheDocument();
-    expect(screen.getByText("Pricing")).toBeInTheDocument();
+    expect(screen.getByLabelText("NX° by Gold Label Apps")).toBeInTheDocument();
+    expect(screen.getByText("Platform")).toBeInTheDocument();
+    expect(screen.getByText("Workflows")).toBeInTheDocument();
+    expect(screen.getByText("Solutions")).toBeInTheDocument();
   });
 
-  it("renders Remote Control link badge and primary download button", () => {
+  it("renders Studio link badge and Sign Up button", () => {
     render(<Header />);
-    expect(screen.getByText(/Launch Remote Control/i)).toBeInTheDocument();
-    const downloadBtns = screen.getAllByText("Download");
-    expect(downloadBtns.length).toBeGreaterThan(0);
+    expect(screen.getByText(/Launch NX° Studio/i)).toBeInTheDocument();
+    expect(screen.getByText("Sign Up")).toBeInTheDocument();
+    expect(screen.getByText("Sign In")).toBeInTheDocument();
   });
 
   it("updates background styling on scroll", () => {
