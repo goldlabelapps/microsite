@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     creator: siteConfig.metadata.twitterHandle,
   },
   icons: {
-    icon: "https://goldlabel.pro/favicons/favicon_dark.png",
+    icon: "https://goldlabel.pro/favicons/favicon_light.png",
   },
 };
 

@@ -9,18 +9,7 @@ export function NxLogo({ className = "h-7 w-auto" }: { className?: string }) {
   return (
     <div className={`inline-flex items-center gap-2.5 font-bold tracking-tight select-none ${className}`}>
       {/* Goldlabel Hex/Cartridge Icon */}
-      <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-[#FFD849] shadow-sm text-[#2c2c2a] font-extrabold text-base transition-transform group-hover:scale-105">
-        <span>NX</span>
-        <span className="absolute -top-1 -right-1 text-xs font-black text-[#364450]">°</span>
-      </div>
-      <div className="flex flex-col text-left leading-none">
-        <span className="text-lg font-black tracking-tight text-[#2c2c2a] dark:text-white flex items-center">
-          NX<span className="text-[#FFD849] ml-0.5">°</span>
-        </span>
-        <span className="text-[9px] font-semibold uppercase tracking-wider text-[#5e6d7a] dark:text-[#cbd5e1]/80">
-          Goldlabel
-        </span>
-      </div>
+      LOGO
     </div>
   );
 }

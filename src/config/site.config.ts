@@ -2,9 +2,9 @@ import { SiteConfig } from "./types";
 
 export const siteConfig: SiteConfig = {
   metadata: {
-    title: "NX° — The Modern Product Platform for Monorepo Apps",
+    title: "Modern Product Platform for Monorepo Apps",
     description: "Rapidly build, compose, and operate modern web applications from one shared monorepo codebase. Powered by Next.js, React, Cartridges, and Uberedux.",
-    siteUrl: "https://goldlabel.pro",
+    siteUrl: "https://microsite.goldlabel.pro",
     twitterHandle: "@goldlabelapps",
     themeColor: "#364450",
   },
@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
       enabled: true,
       copySvgLabel: "Copy NX° Logo as SVG",
       guidelinesLabel: "Goldlabel Brand Guidelines",
-      guidelinesUrl: "https://goldlabel.pro/brand",
+      guidelinesUrl: "/brand",
     },
   },
 
@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
     remoteControlBadge: {
       enabled: true,
       label: "Launch NX° Studio",
-      href: "https://goldlabel.pro/studio",
+      href: "/studio",
       tooltip: "Access your unified monorepo console and operational cartridges",
     },
     links: [
@@ -33,7 +33,7 @@ export const siteConfig: SiteConfig = {
         label: "Platform",
         dropdown: [
           {
-            title: "NX° Monorepo Core",
+            title: "Monorepo Core",
             description: "Modular fullstack application platform for Next.js & Node",
             href: "#features",
             icon: "Layers",
@@ -85,16 +85,16 @@ export const siteConfig: SiteConfig = {
       },
       { label: "Solutions", href: "#solutions" },
       { label: "Articles", href: "#blogs" },
-      { label: "Docs", href: "https://goldlabel.pro/docs", external: true },
+      { label: "Docs", href: "/docs", external: true },
     ],
     primaryCta: {
       label: "Sign Up",
-      href: "https://goldlabel.pro/signup",
+      href: "/signup",
       icon: "ArrowRight",
     },
     secondaryCta: {
       label: "Sign In",
-      href: "https://goldlabel.pro/signin",
+      href: "/signin",
     },
   },
 
@@ -104,12 +104,12 @@ export const siteConfig: SiteConfig = {
     gradientWords: ["unified", "platform", "faster"],
     primaryCta: {
       label: "Sign Up Free",
-      href: "https://goldlabel.pro/signup",
+      href: "/signup",
       icon: "ArrowRight",
     },
     secondaryCta: {
       label: "Sign In to Console",
-      href: "https://goldlabel.pro/signin",
+      href: "/signin",
       icon: "ExternalLink",
     },
     video: {
@@ -171,7 +171,7 @@ export const siteConfig: SiteConfig = {
         },
         cta: {
           label: "Explore Architecture Guide",
-          href: "https://goldlabel.pro/docs/engineering/apps-packages",
+          href: "/docs/engineering/apps-packages",
         },
       },
       {
@@ -202,7 +202,7 @@ export const adminCartridge = createCartridge({
         },
         cta: {
           label: "View Cartridges Doc",
-          href: "https://goldlabel.pro/docs/apps/admin/cartridges",
+          href: "/docs/apps/admin/cartridges",
         },
       },
       {
@@ -223,7 +223,7 @@ export const adminCartridge = createCartridge({
         },
         cta: {
           label: "Read State Patterns",
-          href: "https://goldlabel.pro/docs/apps/admin/framework/uberedux",
+          href: "/docs/apps/admin/framework/uberedux",
         },
       },
       {
@@ -235,7 +235,7 @@ export const adminCartridge = createCartridge({
         previewType: "interactive-ui",
         cta: {
           label: "Explore Design System",
-          href: "https://goldlabel.pro/docs/apps/admin/framework/design-system",
+          href: "/docs/apps/admin/framework/design-system",
         },
       },
     ],
@@ -257,7 +257,7 @@ export const adminCartridge = createCartridge({
         ],
         cta: {
           label: "Explore Developer Guide",
-          href: "https://goldlabel.pro/docs",
+          href: "/docs",
         },
       },
       {
@@ -272,7 +272,7 @@ export const adminCartridge = createCartridge({
         ],
         cta: {
           label: "View Executive Overview",
-          href: "https://goldlabel.pro/docs/business/executive-overview",
+          href: "/docs/business/executive-overview",
         },
       },
       {
@@ -287,7 +287,7 @@ export const adminCartridge = createCartridge({
         ],
         cta: {
           label: "Read Investor Overview",
-          href: "https://goldlabel.pro/docs/business/investor-overview",
+          href: "/docs/business/investor-overview",
         },
       },
     ],
@@ -311,8 +311,8 @@ export const adminCartridge = createCartridge({
           "Comprehensive Vitest & Playwright testing matrix",
         ],
         cta: {
-          label: "Sign Up Free",
-          href: "https://goldlabel.pro/signup",
+          label: "Sign Up",
+          href: "/signup",
           variant: "primary",
         },
         highlighted: true,
@@ -345,7 +345,7 @@ export const adminCartridge = createCartridge({
     subtitle: "Insights, technical updates, and architectural guides from Goldlabel.",
     viewAllCta: {
       label: "View All Articles",
-      href: "https://goldlabel.pro/docs",
+      href: "/docs",
     },
     posts: [
       {
@@ -354,7 +354,7 @@ export const adminCartridge = createCartridge({
         date: "Aug 2026",
         category: "Architecture",
         summary: "Why NX° is more than a collection of apps: a platform combining public experiences, internal operations, and shared UI infrastructure.",
-        href: "https://goldlabel.pro/docs/business/executive-overview",
+        href: "/docs/business/executive-overview",
       },
       {
         id: "investor-overview",
@@ -362,7 +362,7 @@ export const adminCartridge = createCartridge({
         date: "Aug 2026",
         category: "Enterprise",
         summary: "How dual-app monorepos, reusable cartridges, and centralized delivery discipline create compounding technical leverage.",
-        href: "https://goldlabel.pro/docs/business/investor-overview",
+        href: "/docs/business/investor-overview",
       },
       {
         id: "cartridges-intro",
@@ -370,7 +370,7 @@ export const adminCartridge = createCartridge({
         date: "Jul 2026",
         category: "Product",
         summary: "A deep dive into building pluggable admin tools, CRUD views, and offline PWA workflows with zero boilerplate.",
-        href: "https://goldlabel.pro/docs/apps/admin/cartridges",
+        href: "/docs/apps/admin/cartridges",
       },
     ],
   },
@@ -381,11 +381,11 @@ export const adminCartridge = createCartridge({
     subtitle: "Join product teams, founders, and developers shipping ambitious web applications from one unified monorepo.",
     primaryCta: {
       label: "Sign Up for NX° Free",
-      href: "https://goldlabel.pro/signup",
+      href: "/signup",
     },
     secondaryCta: {
       label: "Sign In to Console",
-      href: "https://goldlabel.pro/signin",
+      href: "/signin",
     },
     cliQuickInstall: {
       label: "Or bootstrap locally via CLI:",
@@ -407,7 +407,7 @@ export const adminCartridge = createCartridge({
           { label: "Pluggable Cartridges", href: "#features" },
           { label: "Uberedux State", href: "#features" },
           { label: "Design System", href: "#features" },
-          { label: "Sign Up", href: "https://goldlabel.pro/signup" },
+          { label: "Sign Up", href: "/signup" },
         ],
       },
       {
@@ -417,16 +417,16 @@ export const adminCartridge = createCartridge({
           { label: "Founders & Operators", href: "#use-cases" },
           { label: "Enterprise Teams", href: "#use-cases" },
           { label: "Pricing & Plans", href: "#solutions" },
-          { label: "Sign In", href: "https://goldlabel.pro/signin" },
+          { label: "Sign In", href: "/signin" },
         ],
       },
       {
         title: "Documentation",
         links: [
-          { label: "Executive Overview", href: "https://goldlabel.pro/docs/business/executive-overview", external: true },
-          { label: "Developer Guide", href: "https://goldlabel.pro/docs", external: true },
-          { label: "Investor Overview", href: "https://goldlabel.pro/docs/business/investor-overview", external: true },
-          { label: "Cartridges Doc", href: "https://goldlabel.pro/docs/apps/admin/cartridges", external: true },
+          { label: "Executive Overview", href: "/docs/business/executive-overview", external: true },
+          { label: "Developer Guide", href: "/docs", external: true },
+          { label: "Investor Overview", href: "/docs/business/investor-overview", external: true },
+          { label: "Cartridges Doc", href: "/docs/apps/admin/cartridges", external: true },
         ],
       },
       {
@@ -441,16 +441,16 @@ export const adminCartridge = createCartridge({
       },
     ],
     bottomLinks: [
-      { label: "Privacy Policy", href: "https://goldlabel.pro/privacy" },
-      { label: "Terms of Service", href: "https://goldlabel.pro/terms" },
-      { label: "Brand Guidelines", href: "https://goldlabel.pro/brand" },
-      { label: "Security & Trust", href: "https://goldlabel.pro/security" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Brand Guidelines", href: "/brand" },
+      { label: "Security & Trust", href: "/security" },
     ],
     socialLinks: [
       { platform: "GitHub", href: "https://github.com/goldlabelapps" },
       { platform: "YouTube", href: "https://www.youtube.com/@goldlabelApps" },
       { platform: "Twitter", href: "https://x.com/goldlabelapps" },
     ],
-    copyright: "© 2026 Goldlabel. All rights reserved.",
+    copyright: "© 2026 Goldlabel Apps Ltd. All rights reserved.",
   },
 };
