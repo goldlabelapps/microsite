@@ -3,7 +3,14 @@
   "version": "0.1.1",
   "private": true,
   "type": "module",
+  "bin": {
+    "microsite": "./bin/cli.js",
+    "gla": "./bin/cli.js",
+    "goldlabel": "./bin/cli.js"
+  },
   "scripts": {
+    "setup": "node ./bin/cli.js setup",
+    "cli": "node ./bin/cli.js",
     "dev": "next dev -p 2026",
     "build": "next build",
     "start": "next start -p 2026",
