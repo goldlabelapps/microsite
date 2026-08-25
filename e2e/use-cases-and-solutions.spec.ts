@@ -25,7 +25,7 @@ test.describe("Use Cases & Solutions Tiers", () => {
 
     await expect(solutionsSection.getByText("For Developers", { exact: true })).toBeVisible();
     await expect(solutionsSection.getByText("For Organizations", { exact: true })).toBeVisible();
-    await expect(solutionsSection.getByRole("link", { name: /sign up free/i })).toBeVisible();
+    await expect(solutionsSection.getByRole("link", { name: /^sign up/i })).toBeVisible();
     await expect(solutionsSection.getByRole("link", { name: /contact team/i })).toBeVisible();
   });
 });
