@@ -2,7 +2,7 @@ import { SiteConfig } from "./types";
 
 export const siteConfig: SiteConfig = {
   metadata: {
-    title: "Modern Product Platform for Monorepo Apps",
+    title: "NX°",
     description: "Rapidly build, compose, and operate modern web applications from one shared monorepo codebase. Powered by Next.js, React, Cartridges, and Uberedux.",
     siteUrl: "https://microsite.goldlabel.pro",
     twitterHandle: "@goldlabelapps",

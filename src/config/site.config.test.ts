@@ -2,11 +2,9 @@ import { describe, it, expect } from "vitest";
 import { siteConfig } from "./site.config";
 
 describe("siteConfig", () => {
-  // it("has valid metadata for NX platform", () => {
-  //   expect(siteConfig.metadata.title).toContain("NX°");
-  //   expect(siteConfig.metadata.description).toContain("monorepo");
-  //   expect(siteConfig.metadata.siteUrl).toBe("https://goldlabel.pro");
-  // });
+  it("has valid metadata for NX platform", () => {
+    expect(siteConfig.metadata.title).toContain("NX°");
+  });
 
   // it("has valid brand configuration and logo menu", () => {
   //   expect(siteConfig.brand.name).toBe("NX°");

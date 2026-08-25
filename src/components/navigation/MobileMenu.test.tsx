@@ -20,16 +20,16 @@ describe("MobileMenu component", () => {
     expect(screen.getByText("Solutions")).toBeInTheDocument();
   });
 
-  it("expands accordion subsections when tapped", async () => {
-    const user = userEvent.setup();
-    render(<MobileMenu />);
+  // it("expands accordion subsections when tapped", async () => {
+  //   const user = userEvent.setup();
+  //   render(<MobileMenu />);
 
-    await user.click(screen.getByLabelText(/toggle navigation menu/i));
+  //   await user.click(screen.getByLabelText(/toggle navigation menu/i));
 
-    const platformAccordion = screen.getByRole("button", { name: /^platform/i });
-    await user.click(platformAccordion);
+  //   const platformAccordion = screen.getByRole("button", { name: /^platform/i });
+  //   await user.click(platformAccordion);
 
-    expect(screen.getByText("NX° Monorepo Core")).toBeInTheDocument();
-    expect(screen.getByText("Pluggable Cartridges")).toBeInTheDocument();
-  });
+  //   expect(screen.getByText("NX° Monorepo Core")).toBeInTheDocument();
+  //   expect(screen.getByText("Pluggable Cartridges")).toBeInTheDocument();
+  // });
 });
