@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, Rocket, Download, ExternalLink } from "lucide-react";
+import { Menu, X, ChevronDown, Rocket, ExternalLink } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 import { DropdownItem } from "@/config/types";
 import { Button } from "@/components/ui/Button";

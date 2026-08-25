@@ -1,32 +1,24 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import confetti from "canvas-confetti";
 import { siteConfig } from "@/config/site.config";
 import { detectUserOS, DetectedOS } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import {
-  Download,
   Terminal,
   Copy,
   Check,
-  Laptop,
-  Monitor,
   Sparkles,
-  ArrowRight,
   ShieldCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function DownloadBanner() {
-  const [detectedOS, setDetectedOS] = useState<DetectedOS>("macos-silicon");
+  const [detectedOS] = useState<DetectedOS>(() => detectUserOS());
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    setDetectedOS(detectUserOS());
-  }, []);
-
-  const handleDownloadClick = (os: string) => {
+  const handleDownloadClick = () => {
     // Trigger celebratory liftoff particle confetti
     confetti({
       particleCount: 70,
@@ -114,7 +106,7 @@ export function DownloadBanner() {
 
                   <Button
                     href={platform.downloadUrl}
-                    onClick={() => handleDownloadClick(platform.os)}
+                    onClick={handleDownloadClick}
                     variant={isRecommended ? "primary" : "secondary"}
                     size="sm"
                     className="w-full justify-center text-xs"

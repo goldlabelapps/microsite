@@ -2,19 +2,20 @@
 
 import React from "react";
 import { siteConfig } from "@/config/site.config";
+import { SolutionCard } from "@/config/types";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Check, Sparkles, Building, Code } from "lucide-react";
+import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function SolutionsSection() {
   return (
-    <section id="solutions" className="py-24 sm:py-32 relative bg-[#090a0e] border-t border-white/[0.06]">
+    <section id="solutions" className="py-24 sm:py-32 relative bg-[#090a0e]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400 mb-4 uppercase tracking-wider">
-            <span>Solutions & Tiers</span>
+            <span>Built for Teams of All Sizes</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
             {siteConfig.solutions.title}
@@ -24,64 +25,61 @@ export function SolutionsSection() {
           </p>
         </div>
 
-        {/* Pricing / Solution Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {siteConfig.solutions.cards.map((card) => {
-            const isHighlighted = card.highlighted;
+        {/* Tier Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {siteConfig.solutions.cards.map((card: SolutionCard) => {
+            const isFeatured = card.highlighted;
 
             return (
               <Card
                 key={card.id}
-                variant={isHighlighted ? "glow" : "default"}
+                variant={isFeatured ? "glow" : "default"}
                 className={cn(
-                  "p-8 sm:p-10 flex flex-col justify-between rounded-3xl relative transition-all duration-300 border",
-                  isHighlighted
-                    ? "border-blue-500/40 bg-gradient-to-b from-[#171a22] to-[#0f1117] ring-1 ring-blue-500/20"
-                    : "border-white/[0.08] bg-[#121419]"
+                  "p-8 sm:p-10 flex flex-col justify-between relative",
+                  isFeatured
+                    ? "bg-gradient-to-b from-[#181b24] to-[#101217] border-blue-500/40 shadow-2xl shadow-blue-500/10 ring-1 ring-blue-500/20"
+                    : "bg-[#111318]/80 border-white/10"
                 )}
               >
                 <div>
-                  {/* Top Badge & Tier */}
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/25">
-                      {card.badge}
-                    </span>
+                  {/* Top Badge & Tier Name */}
+                  <div className="flex items-center justify-between gap-4 mb-4">
                     <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider">
                       {card.tier}
                     </span>
+                    {isFeatured && (
+                      <span className="px-3 py-1 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-xs font-semibold">
+                        {card.badge}
+                      </span>
+                    )}
                   </div>
 
-                  {/* Heading & Subtext */}
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+                  {/* Title & Tagline */}
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">
                     {card.heading}
                   </h3>
-                  <p className="text-sm text-neutral-400 mb-8 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed mb-8">
                     {card.description}
                   </p>
 
-                  {/* Included features list */}
-                  <div className="space-y-3 pt-6 border-t border-white/[0.08] mb-8">
-                    <div className="text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
-                      What&apos;s included:
-                    </div>
-                    {card.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-3 text-xs sm:text-sm text-neutral-300">
-                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500/20 text-blue-400 shrink-0">
-                          <Check className="h-3.5 w-3.5" />
-                        </div>
+                  {/* Features List */}
+                  <div className="space-y-3.5 pt-4 border-t border-white/[0.08] mb-10">
+                    {card.features.map((feat: string, fIdx: number) => (
+                      <div key={fIdx} className="flex items-start gap-3 text-xs sm:text-sm text-neutral-300">
+                        <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Card CTA Action */}
+                {/* Bottom Action CTA */}
                 <Button
                   href={card.cta.href}
-                  variant={card.cta.variant === "primary" ? "primary" : "secondary"}
+                  variant={card.cta.variant || (isFeatured ? "primary" : "secondary")}
                   size="lg"
-                  className="w-full justify-center font-semibold"
-                  icon="ArrowRight"
+                  className="w-full justify-center text-sm font-semibold"
+                  icon={isFeatured ? "Download" : "ArrowRight"}
                 >
                   {card.cta.label}
                 </Button>

@@ -45,6 +45,7 @@ export function Button({
   href,
   external,
   children,
+  onClick,
   ...props
 }: ButtonProps) {
   const IconComponent = icon ? iconMap[icon] : null;
@@ -87,6 +88,7 @@ export function Button({
           target="_blank"
           rel="noopener noreferrer"
           className={classes}
+          onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
         >
           {iconPosition === "left" && iconElement}
           <span>{children}</span>
@@ -96,7 +98,11 @@ export function Button({
     }
 
     return (
-      <Link href={href} className={classes}>
+      <Link
+        href={href}
+        className={classes}
+        onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
+      >
         {iconPosition === "left" && iconElement}
         <span>{children}</span>
         {iconPosition === "right" && iconElement}
@@ -105,7 +111,7 @@ export function Button({
   }
 
   return (
-    <button className={classes} {...props}>
+    <button className={classes} onClick={onClick} {...props}>
       {iconPosition === "left" && iconElement}
       <span>{children}</span>
       {iconPosition === "right" && iconElement}

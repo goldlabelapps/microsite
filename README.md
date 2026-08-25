@@ -1,6 +1,6 @@
 # 🚀 Microsite — Google Antigravity Landing Page Template
 
-A pixel-perfect, hyper-polished clone of the [Google Antigravity](https://antigravity.google) product landing page, engineered as a **100% config-driven microsite template**.
+A pixel-perfect, hyper-polished clone of the [Google Antigravity](https://antigravity.google) product landing page, engineered as a **100% config-driven microsite template** with a **battle-tested, enterprise-grade testing & CI suite**.
 
 Create a world-class landing page for your SaaS, developer tool, open-source project, or startup in under 2 minutes simply by editing a single configuration file.
 
@@ -16,6 +16,7 @@ Create a world-class landing page for your SaaS, developer tool, open-source pro
 - **🧭 Developer Stories & Use Cases Carousel**: Horizontal slider showcasing role-specific workflows (Fullstack, Enterprise, Frontend) with video triggers.
 - **💻 OS Auto-Detection Download Banner**: Automatically detects the user's operating system (Apple Silicon, Intel Mac, Windows x64, Linux) with celebratory liftoff particle confetti.
 - **📱 Ultra-Responsive**: Hand-crafted layouts for desktop, tablet, and mobile with accordion navigation drawers.
+- **🧪 Enterprise-Grade Testing & CI**: Comprehensive unit, component, and E2E coverage (>90% coverage with Vitest + Testing Library + Playwright + GitHub Actions CI workflow).
 - **🚀 Universal Deployment**: Next.js 16 + React 19 + Tailwind CSS + Framer Motion. Zero-config deployment to Vercel, Cloudflare Pages, GitHub Pages, Firebase Hosting, or Netlify.
 
 ---
@@ -38,6 +39,60 @@ npm install
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) to see your microsite live with instant Hot Module Reloading (HMR).
+
+---
+
+## 🧪 Testing Suite & Quality Gate
+
+This template comes equipped with an extensive testing matrix exceeding industry standards:
+
+```
+                  ┌──────────────────────────────────────────────┐
+                  │          CI / PR Quality Gate                │
+                  └──────────────────────┬───────────────────────┘
+                                         │
+     ┌───────────────────┬───────────────┴───────────────┬───────────────────┐
+     ▼                   ▼                               ▼                   ▼
+┌──────────────┐ ┌──────────────┐            ┌───────────────────────┐ ┌──────────────┐
+│  TypeScript  │ │    ESLint    │            │     Unit/Component    │ │   Playwright  │
+│  Typecheck   │ │   Linting    │            │     Vitest + V8       │ │    E2E Suite  │
+│(tsc --noEmit)│ │(Next.js rules│            │ (>90% Code Coverage)  │ │(Multi-Browser)│
+└──────────────┘ └──────────────┘            └───────────────────────┘ └──────────────┘
+```
+
+### Available Test Commands
+
+| Command | Description |
+| :--- | :--- |
+| `npm run typecheck` | Validates strict TypeScript compilation without emitting files |
+| `npm run lint` | Runs ESLint with Next.js Core Web Vitals and React rules |
+| `npm test` | Runs the Vitest unit & component test suite |
+| `npm run test:watch` | Starts Vitest in interactive watch mode |
+| `npm run test:coverage` | Generates full V8 test coverage report with thresholds |
+| `npm run test:e2e` | Executes Playwright end-to-end browser test specifications |
+| `npm run test:e2e:ui` | Opens the interactive Playwright Test Runner UI |
+| `npm run ci` | Runs the full pre-commit / pre-merge verification pipeline locally |
+
+### Unit & Component Tests (20 Suites, 60+ Tests)
+- `src/lib/utils.test.ts`: Tailwind class merging & cross-platform OS detection.
+- `src/config/site.config.test.ts`: Schema completeness, valid URLs, platforms, and metadata.
+- `src/components/ui/*`: Button variants/sizes, Card glassmorphism, CustomCursor tracking.
+- `src/components/navigation/*`: Header scroll blur, Dropdown interactions, Context menu SVG copying, Mobile drawer.
+- `src/components/hero/*`: Hero CTAs, Particle canvas animation loop, VideoModal keyboard dismiss.
+- `src/components/showcase/*`: Statement icon badges, Feature explorer tab switching, Use case carousel, Solutions tiers, Blog pagination.
+- `src/components/download/DownloadBanner.test.tsx`: OS recommendation badge, clipboard copy, download triggers.
+- `src/app/page.test.tsx`: Complete root page assembly and hierarchy.
+
+### End-to-End Tests (Playwright)
+- `e2e/landing-page.spec.ts`: Page smoke testing, meta tags, anchor navigation.
+- `e2e/navigation.spec.ts`: Dropdown menus, mobile navigation drawer, logo right-click menu.
+- `e2e/hero-and-video.spec.ts`: Video lightbox trigger, YouTube embed player, ESC dismissal.
+- `e2e/feature-explorer.spec.ts`: Bento tab switching, code snippet viewing, CLI copy button.
+- `e2e/use-cases-and-solutions.spec.ts`: Role-based workflow carousel, video modals, tier CTAs.
+- `e2e/download-flow.spec.ts`: Platform cards, quick installer shell copy, clipboard permissions.
+
+### GitHub Actions CI
+All tests, linting, typechecks, and builds run automatically on every pull request and push to `main` via `.github/workflows/ci.yml`.
 
 ---
 
@@ -235,13 +290,25 @@ To generate pure static HTML/CSS/JS files:
 
 ```
 microsite/
+├── .github/
+│   └── workflows/
+│       └── ci.yml             # GitHub Actions CI Quality Gate
+├── e2e/                       # Playwright End-to-End Test Specs
+│   ├── landing-page.spec.ts
+│   ├── navigation.spec.ts
+│   ├── hero-and-video.spec.ts
+│   ├── feature-explorer.spec.ts
+│   ├── use-cases-and-solutions.spec.ts
+│   └── download-flow.spec.ts
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx         # Root layout with fonts, SEO & metadata
 │   │   ├── page.tsx           # Assembles all microsite sections
+│   │   ├── page.test.tsx      # Page hierarchy & section render test
 │   │   └── globals.css        # Tailwind styles & dark theme
 │   ├── config/
 │   │   ├── site.config.ts     # PRIMARY CONFIG: 100% configurable content
+│   │   ├── site.config.test.ts# Schema verification tests
 │   │   └── types.ts           # Strongly-typed config schema
 │   ├── components/
 │   │   ├── navigation/
@@ -268,7 +335,11 @@ microsite/
 │   │       ├── CustomCursor.tsx     # Interactive magnetic cursor wrapper
 │   │       └── Card.tsx             # Dark glass card with border glow
 │   └── lib/
-│       └── utils.ts                 # Class merger & OS detector
+│       ├── utils.ts                 # Class merger & OS detector
+│       └── utils.test.ts            # Utils unit tests
+├── vitest.config.ts           # Vitest configuration & coverage thresholds
+├── vitest.setup.ts            # DOM & canvas polyfills
+├── playwright.config.ts       # Playwright E2E browser test configuration
 ├── package.json
 └── README.md
 ```
