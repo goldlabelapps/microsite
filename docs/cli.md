@@ -47,7 +47,7 @@ microsite/
 
 #### [NEW] [cli/terminal.js](file:///Users/milky/My%20Drive/GitHub/microsite/cli/terminal.js)
 - ANSI color formatting (bold, dim, green, yellow, red, cyan, magenta, blue).
-- ASCII art branding banner (`GOLD LABEL APPS // MICROSITE CLI`).
+- ASCII art branding banner (`GOLDLABEL // MICROSITE CLI`).
 - Interactive prompts using `node:readline/promises`:
   - `promptSelect(title, options)`: Numbered / key-based interactive selection menu.
   - `promptInput(question, defaultValue)`: Text input with default fallback.

@@ -7,9 +7,9 @@ import { UseCaseSlider } from "./UseCaseSlider";
 describe("UseCaseSlider component", () => {
   it("renders use case roles and slider buttons", () => {
     render(<UseCaseSlider />);
-    expect(screen.getAllByText("Full stack developer").length).toBeGreaterThan(0);
-    expect(screen.getByText("Enterprise developer")).toBeInTheDocument();
-    expect(screen.getByText("Frontend developer")).toBeInTheDocument();
+    expect(screen.getAllByText("Product Engineers").length).toBeGreaterThan(0);
+    expect(screen.getByText("Founders & Operators")).toBeInTheDocument();
+    expect(screen.getByText("Platform Architects")).toBeInTheDocument();
   });
 
   it("navigates slider with previous and next buttons", async () => {
@@ -23,13 +23,10 @@ describe("UseCaseSlider component", () => {
     await user.click(prevBtn);
   });
 
-  it("opens video modal when clicking watch case", async () => {
-    const user = userEvent.setup();
+  it("renders platform blueprint architecture inspector and CTA link", () => {
     render(<UseCaseSlider />);
-
-    const watchBtns = screen.getAllByRole("button", { name: /view case/i });
-    await user.click(watchBtns[0]);
-
-    expect(screen.getByTitle(/Full stack developer Demo/i)).toBeInTheDocument();
+    expect(screen.getByText("Platform Blueprint")).toBeInTheDocument();
+    expect(screen.getByText("Targeted Architecture")).toBeInTheDocument();
+    expect(screen.getByText("Explore Developer Guide")).toBeInTheDocument();
   });
 });

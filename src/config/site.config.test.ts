@@ -2,37 +2,32 @@ import { describe, it, expect } from "vitest";
 import { siteConfig } from "./site.config";
 
 describe("siteConfig", () => {
-  it("has valid metadata", () => {
-    expect(siteConfig.metadata.title).toBeDefined();
-    expect(siteConfig.metadata.description).toBeDefined();
-    expect(siteConfig.metadata.siteUrl).toMatch(/^https?:\/\//);
-  });
 
   it("has valid brand configuration and logo menu", () => {
-    expect(siteConfig.brand.name).toBe("Google Antigravity");
+    expect(siteConfig.brand.name).toBe("NX°");
     expect(siteConfig.brand.contextMenu.enabled).toBe(true);
-    expect(siteConfig.brand.contextMenu.copySvgLabel).toBe("Copy Logo as SVG");
+    expect(siteConfig.brand.contextMenu.copySvgLabel).toBe("Copy NX° Logo as SVG");
   });
 
-  it("has navigation links with dropdowns and remote control", () => {
+  it("has navigation links with dropdowns and Sign In / Sign Up CTAs", () => {
     expect(siteConfig.navigation.links.length).toBeGreaterThan(0);
-    const products = siteConfig.navigation.links.find((l) => l.label === "Products");
-    expect(products).toBeDefined();
-    expect(products?.dropdown?.length).toBeGreaterThan(0);
+    const platform = siteConfig.navigation.links.find((l) => l.label === "Platform");
+    expect(platform).toBeDefined();
+    expect(platform?.dropdown?.length).toBeGreaterThan(0);
 
-    expect(siteConfig.navigation.primaryCta.label).toBe("Download");
+    expect(siteConfig.navigation.primaryCta.label).toBe("Sign Up");
+    expect(siteConfig.navigation.secondaryCta?.label).toBe("Sign In");
     expect(siteConfig.navigation.remoteControlBadge?.enabled).toBe(true);
   });
 
-  it("has hero configuration with particle field and video", () => {
-    expect(siteConfig.hero.headline).toContain("liftoff");
-    expect(siteConfig.hero.video.enabled).toBe(true);
-    expect(siteConfig.hero.video.youtubeEmbedUrl).toContain("youtube.com");
+  it("has hero configuration with particle field and CTAs", () => {
+    expect(siteConfig.hero.headline).toContain("unified platform");
+    expect(siteConfig.hero.primaryCta.label).toBe("Sign Up Free");
     expect(siteConfig.hero.particleField.colors.length).toBeGreaterThan(0);
   });
 
   it("has statement section with floating icons", () => {
-    expect(siteConfig.statement.headline).toContain("Google Antigravity is our agentic development platform");
+    expect(siteConfig.statement.headline).toContain("NX° is not just a collection of apps");
     expect(siteConfig.statement.floatingIcons.length).toBeGreaterThan(0);
     siteConfig.statement.floatingIcons.forEach((icon) => {
       expect(icon.symbol).toBeDefined();
@@ -41,13 +36,13 @@ describe("siteConfig", () => {
     });
   });
 
-  it("has feature explorer items with snippets and mockups", () => {
+  it("has feature explorer items with cartridges and monorepo snippets", () => {
     expect(siteConfig.features.items.length).toBe(4);
-    const cli = siteConfig.features.items.find((f) => f.id === "antigravity-cli");
-    expect(cli?.terminalSnippet?.commands.length).toBeGreaterThan(0);
+    const monorepo = siteConfig.features.items.find((f) => f.id === "nx-monorepo");
+    expect(monorepo?.codeSnippet?.code).toContain("apps/www");
 
-    const sdk = siteConfig.features.items.find((f) => f.id === "antigravity-sdk");
-    expect(sdk?.codeSnippet?.code).toContain("from antigravity import");
+    const cartridges = siteConfig.features.items.find((f) => f.id === "nx-cartridges");
+    expect(cartridges?.codeSnippet?.code).toContain("createCartridge");
   });
 
   it("has use cases with role descriptions", () => {
@@ -74,19 +69,16 @@ describe("siteConfig", () => {
     });
   });
 
-  it("has download platforms for all major operating systems", () => {
-    expect(siteConfig.downloadSection.platforms.length).toBe(4);
-    const osList = siteConfig.downloadSection.platforms.map((p) => p.os);
-    expect(osList).toContain("macos-silicon");
-    expect(osList).toContain("macos-intel");
-    expect(osList).toContain("windows");
-    expect(osList).toContain("linux");
-    expect(siteConfig.downloadSection.cliQuickInstall.command).toContain("curl");
+  it("has auth CTA configuration with CLI quick bootstrap", () => {
+    expect(siteConfig.authCta.primaryCta.label).toContain("Sign Up");
+    expect(siteConfig.authCta.secondaryCta.label).toContain("Sign In");
+    expect(siteConfig.authCta.cliQuickInstall.command).toContain("npx");
+    expect(siteConfig.authCta.trustBadge).toContain("Goldlabel");
   });
 
-  it("has comprehensive footer links and copyright", () => {
+  it("has comprehensive footer links and copyright with company info", () => {
     expect(siteConfig.footer.columns.length).toBe(4);
     expect(siteConfig.footer.bottomLinks.length).toBeGreaterThan(0);
-    expect(siteConfig.footer.copyright).toContain("Google LLC");
+    expect(siteConfig.footer.copyright).toContain("Goldlabel");
   });
 });

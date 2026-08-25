@@ -6,18 +6,18 @@ test.describe("Navigation & Dropdown Menus", () => {
 
     await page.goto("/");
 
-    // Hover on "Products" dropdown button
-    const productsBtn = page.getByRole("button", { name: "Products" });
-    await productsBtn.hover();
+    // Hover on "Platform" dropdown button
+    const platformBtn = page.getByRole("button", { name: "Platform", exact: true });
+    await platformBtn.hover();
 
     // Verify dropdown items appear
-    await expect(page.getByText("Antigravity 2.0").first()).toBeVisible();
-    await expect(page.getByText("Antigravity CLI").first()).toBeVisible();
+    await expect(page.getByText("NX° Monorepo Core").first()).toBeVisible();
+    await expect(page.getByText("Pluggable Cartridges").first()).toBeVisible();
 
-    // Hover on "Use Cases" dropdown button
-    const useCasesBtn = page.getByRole("button", { name: "Use Cases" });
-    await useCasesBtn.hover();
-    await expect(page.getByText("Fullstack Engineering").first()).toBeVisible();
+    // Hover on "Workflows" dropdown button
+    const workflowsBtn = page.getByRole("button", { name: "Workflows", exact: true });
+    await workflowsBtn.hover();
+    await expect(page.getByText("Product Engineers").first()).toBeVisible();
   });
 
   test("opens logo context menu on right click and copies SVG", async ({ page }) => {
@@ -26,11 +26,11 @@ test.describe("Navigation & Dropdown Menus", () => {
     // Grant clipboard permissions in browser context
     await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
 
-    const logo = page.locator("svg[aria-label='Google Antigravity']").first();
+    const logo = page.getByLabel("NX° by Goldlabel").first();
     await logo.click({ button: "right" });
 
     // Verify context menu options
-    const copyOption = page.getByText(/Copy Logo as SVG/i);
+    const copyOption = page.getByText(/Copy NX° Logo as SVG/i);
     await expect(copyOption).toBeVisible();
 
     await copyOption.click();
@@ -50,11 +50,32 @@ test.describe("Navigation & Dropdown Menus", () => {
     await menuBtn.click();
 
     // Verify drawer contents
-    await expect(page.getByRole("button", { name: "Products" })).toBeVisible();
-    await expect(page.getByRole("button", { name: "Use Cases" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Platform", exact: true })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Workflows", exact: true })).toBeVisible();
 
-    // Click Products accordion to expand
-    await page.getByRole("button", { name: "Products" }).click();
-    await expect(page.getByText("Antigravity 2.0").first()).toBeVisible();
+    // Click Platform accordion to expand
+    await page.getByRole("button", { name: "Platform", exact: true }).click();
+    await expect(page.getByText("NX° Monorepo Core").first()).toBeVisible();
+  });
+
+  test("defaults to light theme and toggles to dark theme explicitly", async ({ page }) => {
+    await page.goto("/");
+
+    // Verify html element does NOT have 'dark' class initially
+    const htmlElement = page.locator("html");
+    await expect(htmlElement).not.toHaveClass(/dark/);
+
+    // Click theme toggle button
+    const themeBtn = page.getByRole("button", { name: /switch to dark theme/i }).first();
+    await expect(themeBtn).toBeVisible();
+    await themeBtn.click();
+
+    // Verify html element now has 'dark' class
+    await expect(htmlElement).toHaveClass(/dark/);
+
+    // Click again to return to light theme
+    const lightBtn = page.getByRole("button", { name: /switch to light theme/i }).first();
+    await lightBtn.click();
+    await expect(htmlElement).not.toHaveClass(/dark/);
   });
 });

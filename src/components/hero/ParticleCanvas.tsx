@@ -26,13 +26,13 @@ export function ParticleCanvas({ className = "absolute inset-0 pointer-events-no
     if (!ctx) return;
 
     let animationFrameId: number;
-    let width = (canvas.width = canvas.offsetWidth);
-    let height = (canvas.height = canvas.offsetHeight);
+    let width = (canvas.width = canvas.offsetWidth || 1200);
+    let height = (canvas.height = canvas.offsetHeight || 800);
 
     const handleResize = () => {
       if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
+      width = canvas.width = canvas.offsetWidth || 1200;
+      height = canvas.height = canvas.offsetHeight || 800;
     };
 
     window.addEventListener("resize", handleResize);
@@ -75,6 +75,7 @@ export function ParticleCanvas({ className = "absolute inset-0 pointer-events-no
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
+      const isDark = document.documentElement.classList.contains("dark");
 
       // Update and draw particles
       for (let i = 0; i < particles.length; i++) {
@@ -102,13 +103,17 @@ export function ParticleCanvas({ className = "absolute inset-0 pointer-events-no
           }
         }
 
-        // Draw particle with subtle glow
+        // Draw particle with theme-aware styling
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
-        ctx.globalAlpha = p.alpha;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = p.color;
+        ctx.globalAlpha = isDark ? p.alpha : p.alpha * 0.7;
+        if (isDark) {
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = p.color;
+        } else {
+          ctx.shadowBlur = 0;
+        }
         ctx.fill();
         ctx.shadowBlur = 0;
 
@@ -124,8 +129,10 @@ export function ParticleCanvas({ className = "absolute inset-0 pointer-events-no
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.strokeStyle = p.color;
-            ctx.globalAlpha = (1 - dist / maxDistance) * 0.15;
-            ctx.lineWidth = 0.8;
+            ctx.globalAlpha = isDark
+              ? (1 - dist / maxDistance) * 0.15
+              : (1 - dist / maxDistance) * 0.08;
+            ctx.lineWidth = isDark ? 0.8 : 0.6;
             ctx.stroke();
           }
         }

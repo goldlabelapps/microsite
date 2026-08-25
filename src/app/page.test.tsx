@@ -12,24 +12,24 @@ describe("HomePage assembly", () => {
     render(<HomePage />);
 
     // 1. Hero
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/experience liftoff/i);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/build and operate web apps from one unified platform/i);
 
     // 2. Statement
-    expect(screen.getByText(/Google Antigravity is our agentic development platform/i)).toBeInTheDocument();
+    expect(screen.getByText(/NX° is not just a collection of apps/i)).toBeInTheDocument();
 
     // 3. Feature Explorer
-    expect(screen.getByRole("button", { name: /antigravity 2.0/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /apps & packages architecture/i })).toBeInTheDocument();
 
     // 4. Use Cases
-    expect(screen.getAllByText("Full stack developer").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Product Engineers").length).toBeGreaterThan(0);
 
     // 5. Solutions
-    expect(screen.getByText("Achieve new heights")).toBeInTheDocument();
+    expect(screen.getByText("Launch Your Next Project")).toBeInTheDocument();
 
     // 6. Blogs
-    expect(screen.getByText(/Latest Blogs/i)).toBeInTheDocument();
+    expect(screen.getByText(/Platform News & Architecture/i)).toBeInTheDocument();
 
-    // 7. Download
-    expect(screen.getByText("Apple Silicon (M1/M2/M3/M4)")).toBeInTheDocument();
+    // 7. Auth CTA / Sign Up
+    expect(screen.getByPlaceholderText(/enter your work email/i)).toBeInTheDocument();
   });
 });

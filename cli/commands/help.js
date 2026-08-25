@@ -3,7 +3,7 @@ import { banner, colors, log } from "../terminal.js";
 export function showHelp() {
   console.log(banner);
   console.log(`${colors.bold}${colors.brightWhite}NAME${colors.reset}`);
-  console.log(`    ${colors.cyan}microsite / gla${colors.reset} — Gold Label Apps Autonomous Microsite Command Line Tool\n`);
+  console.log(`    ${colors.cyan}microsite / gla${colors.reset} — Goldlabel Autonomous Microsite Command Line Tool\n`);
 
   console.log(`${colors.bold}${colors.brightWhite}SYNOPSIS${colors.reset}`);
   console.log(`    ${colors.bold}pnpm run setup${colors.reset}`);
@@ -13,6 +13,7 @@ export function showHelp() {
   console.log(`    ${colors.bold}${colors.brightGreen}setup${colors.reset}          Interactive project onboarding, dependency install & verification`);
   console.log(`    ${colors.bold}${colors.brightGreen}dev${colors.reset}            Launch local Next.js development server on port 2026`);
   console.log(`    ${colors.bold}${colors.brightGreen}test${colors.reset} [type]     Run test suites: ${colors.dim}unit, coverage, e2e, ui, ci${colors.reset}`);
+  console.log(`    ${colors.bold}${colors.brightGreen}push${colors.reset} [options]  Run full CI quality gate, commit & raise PR to staging/master`);
   console.log(`    ${colors.bold}${colors.brightGreen}scaffold${colors.reset}       Interactively scaffold new feature tabs, use cases, or blog posts`);
   console.log(`    ${colors.bold}${colors.brightGreen}git${colors.reset}            Git repository manager & Conventional Commit generator`);
   console.log(`    ${colors.bold}${colors.brightGreen}env${colors.reset}            Display toolchain diagnostics (Node, PM, Git, Playwright)`);

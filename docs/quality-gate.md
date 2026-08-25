@@ -68,41 +68,34 @@ Update `package.json` scripts:
 
 #### [NEW] `src/components/showcase/*.test.tsx`
 - `StatementSection.test.tsx`: vision statement copy, floating glyph badges, styling.
-- `FeatureExplorer.test.tsx`: tab switching between Antigravity 2.0, CLI, IDE, SDK; terminal snippet display; code copy button with copied state; agent fleet simulation.
-- `UseCaseSlider.test.tsx`: role cards (Fullstack, Enterprise, Frontend), carousel prev/next navigation, watch case click modal opener.
-- `SolutionsSection.test.tsx`: developer vs enterprise cards, highlight state, features list, CTAs.
-- `BlogSection.test.tsx`: post cards, category badges, pagination/slider navigation, external reading links.
-
-#### [NEW] `src/components/download/*.test.tsx` & `src/components/footer/*.test.tsx`
-- `DownloadBanner.test.tsx`: OS recommendation tag, download button click, confetti trigger, CLI command copy.
-- `Footer.test.tsx`: link columns, legal links, copyright rendering.
-- `HomePage.test.tsx`: root page assembly and full section sequence.
+- `FeatureExplorer.test.tsx`: tab switching between Monorepo, Cartridges, Uberedux, Design System; terminal snippet display; code copy button with copied state; design tokens simulation.
+- `UseCaseSlider.test.tsx`: developer role carousel navigation, next/prev slide updates, video modal opening.
+- `SolutionsSection.test.tsx`: developer vs enterprise tier cards, checkmark list rendering, action buttons.
+- `BlogSection.test.tsx`: category tags, dates, publication summaries, pagination next/prev navigation.
+- `DownloadBanner.test.tsx`: email sign-up submission, confetti trigger, CLI bootstrap copy.
+- `Footer.test.tsx`: columns, legal links, Goldlabel copyright notice.
+- `page.test.tsx`: full integration smoke test verifying that all 7 core sections mount cleanly in order.
 
 ---
 
-### 4. End-to-End (E2E) Test Suite (Playwright)
+### 4. End-to-End Test Matrix (`e2e/*.spec.ts`)
+Playwright tests executed across multiple browser engines (**Chromium**, **Firefox**, **WebKit**, **Mobile Chrome / Pixel 5**):
 
-#### [NEW] `e2e/landing-page.spec.ts`
-- Full landing page rendering, heading hierarchy, viewport responsiveness, sticky header scroll blur.
-
-#### [NEW] `e2e/navigation.spec.ts`
-- Dropdown menus interaction on hover and click.
-- Mobile menu drawer opening, accordion dropdowns, responsive viewport adaptation.
-- Right-click on Google Antigravity logo to open custom context menu and copy SVG.
-
-#### [NEW] `e2e/hero-and-video.spec.ts`
-- Hero CTAs navigation anchors.
-- Hovering over video showcase to verify custom magnetic cursor.
-- Clicking video card to open video lightbox modal, iframe loading, and closing via ESC and close button.
-
-#### [NEW] `e2e/feature-explorer.spec.ts`
-- Switching between tabs (Antigravity 2.0, CLI, IDE, SDK).
+- `landing-page.spec.ts`: full-page load, title/meta checks, smooth scrolling on anchor click.
+- `navigation.spec.ts`:
+  - Hovering and opening dropdown menus.
+  - Right-click on NX logo to open custom context menu and copy SVG.
+  - Responsive mobile drawer accordion expansion.
+- `hero-and-video.spec.ts`:
+  - Playing YouTube video modal from the hero preview frame.
+  - Dismissing video lightbox on ESC key press.
+- `feature-explorer.spec.ts`:
+  - Switching between tabs (Monorepo, Cartridges, Uberedux, Design System).
 - Verifying code snippet display and terminal output.
 - Interacting with Copy Code button.
 
 #### [NEW] `e2e/use-cases-and-solutions.spec.ts`
 - Use case slider buttons, active card transitions, watch case modal launch.
-- Solution tier CTA buttons.
 
 #### [NEW] `e2e/download-flow.spec.ts`
 - Verifying OS detection auto-highlights recommended platform.

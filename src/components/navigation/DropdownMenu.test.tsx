@@ -5,19 +5,19 @@ import { DropdownMenu } from "./DropdownMenu";
 import { NavItem } from "@/config/types";
 
 const mockItem: NavItem = {
-  label: "Products",
+  label: "Platform",
   dropdown: [
     {
-      title: "Antigravity 2.0",
-      description: "Command center for parallel agents",
+      title: "NX° Monorepo Core",
+      description: "Modular fullstack application platform",
       href: "#features",
       icon: "Layers",
-      badge: "New",
+      badge: "v3.0",
     },
     {
       title: "External Docs",
-      description: "API & SDK guide",
-      href: "https://docs.google.com",
+      description: "Architecture & Cartridges guide",
+      href: "https://goldlabel.pro/docs",
       external: true,
     },
   ],
@@ -26,13 +26,13 @@ const mockItem: NavItem = {
 describe("DropdownMenu component", () => {
   it("renders trigger button and toggles open state on hover", async () => {
     render(<DropdownMenu item={mockItem} />);
-    const trigger = screen.getByRole("button", { name: /products/i });
+    const trigger = screen.getByRole("button", { name: /platform/i });
     expect(trigger).toBeInTheDocument();
 
     // Hover to open
     fireEvent.mouseEnter(trigger.parentElement!);
-    expect(screen.getByText("Antigravity 2.0")).toBeInTheDocument();
-    expect(screen.getByText("New")).toBeInTheDocument();
+    expect(screen.getByText("NX° Monorepo Core")).toBeInTheDocument();
+    expect(screen.getByText("v3.0")).toBeInTheDocument();
     expect(screen.getByText("External Docs")).toBeInTheDocument();
 
     // Mouse leave with timer
@@ -46,8 +46,8 @@ describe("DropdownMenu component", () => {
 
   it("toggles on click as well", () => {
     render(<DropdownMenu item={mockItem} />);
-    const trigger = screen.getByRole("button", { name: /products/i });
+    const trigger = screen.getByRole("button", { name: /platform/i });
     fireEvent.click(trigger);
-    expect(screen.getByText("Antigravity 2.0")).toBeInTheDocument();
+    expect(screen.getByText("NX° Monorepo Core")).toBeInTheDocument();
   });
 });

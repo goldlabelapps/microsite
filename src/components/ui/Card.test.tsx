@@ -14,10 +14,10 @@ describe("Card component", () => {
     expect(screen.getByText("Glass Card")).toHaveClass("backdrop-blur-xl");
 
     rerender(<Card variant="glow">Glow Card</Card>);
-    expect(screen.getByText("Glow Card")).toHaveClass("bg-gradient-to-b");
+    expect(screen.getByText("Glow Card")).toHaveClass("border-[#FFD849]/30");
 
     rerender(<Card variant="bordered">Bordered Card</Card>);
-    expect(screen.getByText("Bordered Card")).toHaveClass("border-neutral-800");
+    expect(screen.getByText("Bordered Card")).toHaveClass("border-neutral-200");
   });
 
   it("handles hoverEffect disabling", () => {
