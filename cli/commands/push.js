@@ -1,6 +1,6 @@
 import { execSync } from "node:child_process";
 import { checkEnv } from "../env.js";
-import { log, colors, banner, promptConfirm, promptInput, promptSelect } from "../terminal.js";
+import { log, colors, banner, promptConfirm, promptInput } from "../terminal.js";
 
 /**
  * Executes the full GitHub Actions CI Quality Gate locally

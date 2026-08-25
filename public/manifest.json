@@ -1,0 +1,25 @@
+{
+  "name": "NX° by Goldlabel",
+  "short_name": "NX°",
+  "description": "Compose, and operate multiple web apps from one shared monorepo codebase.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#FFD849",
+  "background_color": "#364450",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

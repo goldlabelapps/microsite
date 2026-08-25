@@ -30,4 +30,16 @@ test.describe("Landing Page — Core Smoke & Rendering", () => {
     const signInBtn = page.getByRole("link", { name: /^sign in to console$/i }).first();
     await expect(signInBtn).toBeVisible();
   });
+
+  test("serves valid PWA manifest and apple-touch-icon head tags", async ({ page }) => {
+    await page.goto("/");
+
+    // Verify manifest link
+    const manifestLink = page.locator("link[rel='manifest']");
+    await expect(manifestLink).toHaveAttribute("href", /\/manifest\.(webmanifest|json)/);
+
+    // Verify apple touch icon link
+    const appleIcon = page.locator("link[rel='apple-touch-icon']");
+    await expect(appleIcon).toHaveAttribute("href", "/apple-touch-icon.png");
+  });
 });

@@ -9,6 +9,16 @@ describe("siteConfig", () => {
     expect(siteConfig.brand.contextMenu.copySvgLabel).toBe("Copy NX° Logo as SVG");
   });
 
+  it("has valid PWA configuration with brand assets and theme tokens", () => {
+    expect(siteConfig.pwa.enabled).toBe(true);
+    expect(siteConfig.pwa.appleTouchIcon).toBe("/apple-touch-icon.png");
+    expect(siteConfig.pwa.favicon).toBe("/favicon.svg");
+    expect(siteConfig.pwa.name).toBe("NX° by Goldlabel");
+    expect(siteConfig.pwa.shortName).toBe("NX°");
+    expect(siteConfig.pwa.icons.length).toBeGreaterThanOrEqual(2);
+    expect(siteConfig.pwa.themeColor).toBe("#FFD849");
+  });
+
   it("has navigation links with dropdowns and Sign In / Sign Up CTAs", () => {
     expect(siteConfig.navigation.links.length).toBeGreaterThan(0);
     const platform = siteConfig.navigation.links.find((l) => l.label === "Platform");
