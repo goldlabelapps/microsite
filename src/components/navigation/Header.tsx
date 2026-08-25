@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Rocket, Download } from "lucide-react";
+import { Rocket } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 import { LogoContextMenu } from "./LogoContextMenu";
 import { DropdownMenu } from "./DropdownMenu";

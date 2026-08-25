@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { siteConfig } from "@/config/site.config";
 import { Card } from "@/components/ui/Card";
-import { ChevronLeft, ChevronRight, ArrowUpRight, Calendar, Tag } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowUpRight, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function BlogSection() {

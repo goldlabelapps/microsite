@@ -6,7 +6,7 @@ import { ParticleCanvas } from "./ParticleCanvas";
 import { VideoModal } from "./VideoModal";
 import { CustomCursorWrapper } from "@/components/ui/CustomCursor";
 import { Button } from "@/components/ui/Button";
-import { Play, Sparkles, Terminal, Code2, Cpu, ShieldCheck } from "lucide-react";
+import { Play, Terminal, Code2, ShieldCheck } from "lucide-react";
 
 export function HeroSection() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
