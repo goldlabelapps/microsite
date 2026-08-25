@@ -9,6 +9,9 @@ import {
   Copy,
   Check,
   Zap,
+  Bot,
+  Layers,
+  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -132,10 +135,15 @@ export function FeatureExplorer() {
                             <Terminal className="h-3.5 w-3.5 text-blue-400" />
                             <span>agy-cli — bash</span>
                           </>
-                        ) : (
+                        ) : activeItem.codeSnippet ? (
                           <>
                             <Code2 className="h-3.5 w-3.5 text-emerald-400" />
                             <span>{activeItem.codeSnippet?.filename || "agent.py — python"}</span>
+                          </>
+                        ) : (
+                          <>
+                            <Bot className="h-3.5 w-3.5 text-indigo-400" />
+                            <span>antigravity-studio — live session</span>
                           </>
                         )}
                       </span>
@@ -192,8 +200,32 @@ export function FeatureExplorer() {
                     )}
 
                     {activeItem.previewType === "interactive-ui" && !activeItem.codeSnippet && !activeItem.terminalSnippet && (
-                      <div className="p-6 text-center text-neutral-400">
-                        <p className="text-sm font-sans">{activeItem.description}</p>
+                      <div className="p-4 space-y-3 font-sans">
+                        <div className="flex items-center justify-between p-3 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+                          <div className="flex items-center gap-2.5">
+                            <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                            <span className="text-xs font-mono font-medium text-white">Subagent Pool</span>
+                          </div>
+                          <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                            3 Connected
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2 text-xs">
+                          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                            <div className="flex items-center gap-1.5 text-blue-400 font-mono mb-1">
+                              <Sparkles className="h-3 w-3" />
+                              <span>Planner Agent</span>
+                            </div>
+                            <p className="text-[11px] text-neutral-400">Synthesizing task blueprint & artifacts</p>
+                          </div>
+                          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                            <div className="flex items-center gap-1.5 text-purple-400 font-mono mb-1">
+                              <Layers className="h-3 w-3" />
+                              <span>Worker Fleet</span>
+                            </div>
+                            <p className="text-[11px] text-neutral-400">Executing sandbox verification suites</p>
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>
