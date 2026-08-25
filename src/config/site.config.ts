@@ -3,7 +3,7 @@ import { SiteConfig } from "./types";
 export const siteConfig: SiteConfig = {
   metadata: {
     title: "NX°",
-    description: "Rapidly build, compose, and operate modern web applications from one shared monorepo codebase. Powered by Next.js, React, Cartridges, and Uberedux.",
+    description: "Compose, and operate multiple web apps from one shared monorepo codebase.",
     siteUrl: "https://microsite.goldlabel.pro",
     twitterHandle: "@goldlabelapps",
     themeColor: "#364450",
@@ -11,7 +11,7 @@ export const siteConfig: SiteConfig = {
 
   brand: {
     name: "NX°",
-    tagline: "Rapidly build, compose, and operate modern web apps from one shared monorepo.",
+    tagline: "Compose, and operate multiple web apps from one shared monorepo codebase.",
     logoType: "svg",
     contextMenu: {
       enabled: true,
