@@ -10,7 +10,6 @@ import {
   Check,
   Sparkles,
   ShieldCheck,
-  ArrowRight,
   Mail,
   CheckCircle2,
 } from "lucide-react";
@@ -93,10 +92,9 @@ export function DownloadBanner() {
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-full bg-[#FFD849] hover:bg-[#f0c930] text-[#2c2c2a] font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 cursor-pointer active:scale-95 shrink-0"
+                  className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#FFD849] hover:bg-[#f0c930] text-[#2c2c2a] font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 cursor-pointer active:scale-95 shrink-0"
                 >
                   <span>Get Started</span>
-                  <ArrowRight className="h-4 w-4" />
                 </button>
               </form>
             )}
@@ -110,7 +108,6 @@ export function DownloadBanner() {
                 className="font-bold shadow-md"
               >
                 <span>{siteConfig.authCta.primaryCta.label}</span>
-                <ArrowRight className="ml-1.5 h-4 w-4" />
               </Button>
 
               <Button

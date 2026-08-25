@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown, Sparkles, ExternalLink, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, Sparkles, ExternalLink } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 import { DropdownItem } from "@/config/types";
 import { Button } from "@/components/ui/Button";
@@ -135,8 +135,7 @@ export function MobileMenu() {
                 className="justify-center text-xs font-bold"
                 onClick={() => setIsOpen(false)}
               >
-                <span>Sign Up</span>
-                <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                <span>{siteConfig.navigation.primaryCta.label}</span>
               </Button>
             </div>
           </div>

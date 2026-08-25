@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 import { LogoContextMenu } from "./LogoContextMenu";
 import { DropdownMenu } from "./DropdownMenu";
@@ -95,8 +95,7 @@ export function Header() {
             size="sm"
             className="hidden sm:inline-flex shadow-sm font-bold"
           >
-            <span>{siteConfig.navigation.primaryCta.label}</span>
-            <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+            {siteConfig.navigation.primaryCta.label}
           </Button>
 
           {/* Mobile Menu Trigger */}
