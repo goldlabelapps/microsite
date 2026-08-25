@@ -57,4 +57,26 @@ test.describe("Navigation & Dropdown Menus", () => {
     await page.getByRole("button", { name: "Products" }).click();
     await expect(page.getByText("Antigravity 2.0").first()).toBeVisible();
   });
+
+  test("defaults to light theme and toggles to dark theme explicitly", async ({ page }) => {
+    await page.goto("/");
+
+    // Verify html element does NOT have 'dark' class initially
+    const htmlElement = page.locator("html");
+    await expect(htmlElement).not.toHaveClass(/dark/);
+
+    // Click theme toggle button
+    const themeBtn = page.getByRole("button", { name: /switch to dark theme/i }).first();
+    await expect(themeBtn).toBeVisible();
+    await themeBtn.click();
+
+    // Verify html element now has 'dark' class
+    await expect(htmlElement).toHaveClass(/dark/);
+
+    // Click again to return to light theme
+    const lightBtn = page.getByRole("button", { name: /switch to light theme/i }).first();
+    await lightBtn.click();
+    await expect(htmlElement).not.toHaveClass(/dark/);
+  });
 });
+

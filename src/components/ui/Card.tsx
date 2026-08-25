@@ -16,14 +16,14 @@ export function Card({
   const baseStyles = "rounded-2xl transition-all duration-300 relative overflow-hidden";
 
   const variantStyles = {
-    default: "bg-[#16181d] border border-white/[0.08] text-neutral-100",
-    glass: "bg-[#13151a]/80 backdrop-blur-xl border border-white/[0.07] text-neutral-100 shadow-2xl",
-    bordered: "bg-[#0f1115] border border-neutral-800 text-neutral-100",
-    glow: "bg-gradient-to-b from-[#181b22] to-[#101217] border border-white/[0.1] shadow-2xl shadow-blue-500/5",
+    default: "bg-white border border-black/[0.08] text-neutral-900 shadow-sm dark:bg-[#16181d] dark:border-white/[0.08] dark:text-neutral-100",
+    glass: "bg-white/80 backdrop-blur-xl border border-black/[0.07] text-neutral-900 shadow-xl dark:bg-[#13151a]/80 dark:border-white/[0.07] dark:text-neutral-100 dark:shadow-2xl",
+    bordered: "bg-neutral-50 border border-neutral-200 text-neutral-900 dark:bg-[#0f1115] dark:border-neutral-800 dark:text-neutral-100",
+    glow: "bg-white border border-blue-500/20 shadow-xl shadow-blue-500/5 text-neutral-900 dark:bg-gradient-to-b dark:from-[#181b22] dark:to-[#101217] dark:border-white/[0.1] dark:shadow-blue-500/5 dark:text-neutral-100",
   };
 
   const hoverStyles = hoverEffect
-    ? "hover:border-white/[0.18] hover:translate-y-[-2px] hover:shadow-xl hover:shadow-black/50"
+    ? "hover:border-blue-500/30 hover:translate-y-[-2px] hover:shadow-lg dark:hover:border-white/[0.18] dark:hover:shadow-black/50"
     : "";
 
   return (

@@ -65,8 +65,8 @@ export function DropdownMenu({ item }: { item: NavItem }) {
         className={cn(
           "flex items-center gap-1 px-3 py-1.5 text-sm font-medium transition-colors rounded-full",
           isOpen
-            ? "text-white bg-white/10"
-            : "text-neutral-300 hover:text-white hover:bg-white/5"
+            ? "text-neutral-900 bg-black/[0.06] dark:text-white dark:bg-white/10"
+            : "text-neutral-600 hover:text-neutral-900 hover:bg-black/[0.04] dark:text-neutral-300 dark:hover:text-white dark:hover:bg-white/5"
         )}
       >
         <span>{item.label}</span>
@@ -80,7 +80,7 @@ export function DropdownMenu({ item }: { item: NavItem }) {
 
       {isOpen && (
         <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50 w-72 md:w-80">
-          <div className="rounded-2xl bg-[#14161b]/95 border border-white/10 p-2 shadow-2xl backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150">
+          <div className="rounded-2xl bg-white/95 border border-black/10 dark:bg-[#14161b]/95 dark:border-white/10 p-2 shadow-2xl backdrop-blur-2xl animate-in fade-in zoom-in-95 duration-150">
             <div className="space-y-1">
               {dropdownItems.map((dropdownItem, idx) => {
                 const IconComponent = dropdownItem.icon
@@ -88,28 +88,28 @@ export function DropdownMenu({ item }: { item: NavItem }) {
                   : null;
 
                 const content = (
-                  <div className="flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-white/10 group">
+                  <div className="flex items-start gap-3 rounded-xl p-2.5 transition-colors hover:bg-black/[0.04] dark:hover:bg-white/10 group">
                     {IconComponent && (
-                      <div className="mt-0.5 rounded-lg bg-white/5 p-1.5 text-neutral-300 group-hover:bg-blue-500/20 group-hover:text-blue-400 transition-colors">
+                      <div className="mt-0.5 rounded-lg bg-black/[0.04] dark:bg-white/5 p-1.5 text-neutral-600 dark:text-neutral-300 group-hover:bg-blue-500/15 group-hover:text-blue-600 dark:group-hover:bg-blue-500/20 dark:group-hover:text-blue-400 transition-colors">
                         <IconComponent className="h-4 w-4" />
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
-                        <span className="text-xs font-semibold text-neutral-100 group-hover:text-white">
+                        <span className="text-xs font-semibold text-neutral-800 dark:text-neutral-100 group-hover:text-neutral-900 dark:group-hover:text-white">
                           {dropdownItem.title}
                         </span>
                         {dropdownItem.badge && (
-                          <span className="rounded-full bg-blue-500/20 px-1.5 py-0.2 text-[10px] font-medium text-blue-300 border border-blue-500/30">
+                          <span className="rounded-full bg-blue-500/10 dark:bg-blue-500/20 px-1.5 py-0.2 text-[10px] font-medium text-blue-600 dark:text-blue-300 border border-blue-500/20 dark:border-blue-500/30">
                             {dropdownItem.badge}
                           </span>
                         )}
                         {dropdownItem.external && (
-                          <ExternalLink className="h-3 w-3 text-neutral-500 group-hover:text-neutral-300" />
+                          <ExternalLink className="h-3 w-3 text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-600 dark:group-hover:text-neutral-300" />
                         )}
                       </div>
                       {dropdownItem.description && (
-                        <p className="text-[11px] text-neutral-400 line-clamp-2 mt-0.5">
+                        <p className="text-[11px] text-neutral-500 dark:text-neutral-400 line-clamp-2 mt-0.5">
                           {dropdownItem.description}
                         </p>
                       )}

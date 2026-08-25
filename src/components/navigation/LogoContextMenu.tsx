@@ -161,36 +161,36 @@ export function LogoContextMenu() {
     <div ref={containerRef} onContextMenu={handleContextMenu} className="relative inline-flex items-center">
       <Link
         href="/"
-        className="group flex items-center gap-2 py-1 text-white hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-lg"
+        className="group flex items-center gap-2 py-1 text-neutral-900 dark:text-white hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-lg"
         title="Right click for logo assets"
       >
-        <GoogleAntigravityLogo className="h-5 md:h-5.5 w-auto text-white" />
+        <GoogleAntigravityLogo className="h-5 md:h-5.5 w-auto text-neutral-900 dark:text-white" />
       </Link>
 
       {isOpen && (
         <div
           ref={menuRef}
           style={{ top: `${position.y}px`, left: `${position.x}px` }}
-          className="fixed z-50 min-w-[200px] rounded-xl bg-[#1c1e24] border border-white/10 p-1.5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150"
+          className="fixed z-50 min-w-[200px] rounded-xl bg-white/95 border border-black/10 dark:bg-[#1c1e24] dark:border-white/10 p-1.5 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-150"
         >
           <button
             onClick={handleCopySvg}
-            className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-neutral-200 hover:bg-white/10 hover:text-white transition-colors"
+            className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-neutral-800 dark:text-neutral-200 hover:bg-black/[0.05] dark:hover:bg-white/10 hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
             {copied ? (
-              <Check className="h-4 w-4 text-emerald-400" />
+              <Check className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />
             ) : (
-              <Copy className="h-4 w-4 text-neutral-400" />
+              <Copy className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
             )}
             <span>{copied ? "Copied SVG!" : siteConfig.brand.contextMenu.copySvgLabel}</span>
           </button>
-          <div className="my-1 h-px bg-white/10" />
+          <div className="my-1 h-px bg-black/[0.06] dark:bg-white/10" />
           <a
             href={siteConfig.brand.contextMenu.guidelinesUrl}
             onClick={() => setIsOpen(false)}
-            className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-neutral-200 hover:bg-white/10 hover:text-white transition-colors"
+            className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-xs font-medium text-neutral-800 dark:text-neutral-200 hover:bg-black/[0.05] dark:hover:bg-white/10 hover:text-neutral-900 dark:hover:text-white transition-colors"
           >
-            <FileText className="h-4 w-4 text-neutral-400" />
+            <FileText className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
             <span>{siteConfig.brand.contextMenu.guidelinesLabel}</span>
           </a>
         </div>

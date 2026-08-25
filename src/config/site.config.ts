@@ -2,16 +2,16 @@ import { SiteConfig } from "./types";
 
 export const siteConfig: SiteConfig = {
   metadata: {
-    title: "Google Antigravity — Next-Gen Agent Platform",
-    description: "Experience liftoff with the next-gen agent platform. Built for developers for the agent-first era.",
-    siteUrl: "https://antigravity.google",
-    twitterHandle: "@antigravity",
+    title: "NX°",
+    description: "Rapidly build modern apps in the agent-first era.",
+    siteUrl: "https://microsite.goldlabel.pro",
+    twitterHandle: "@goldlabelapps",
     themeColor: "#0a0b0e",
   },
 
   brand: {
-    name: "Google Antigravity",
-    tagline: "Experience liftoff",
+    name: "NX°",
+    tagline: "Rapidly build modern apps in the agent-first era.",
     logoType: "svg",
     contextMenu: {
       enabled: true,

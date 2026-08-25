@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { log, colors, banner, promptSelect, promptInput, promptConfirm } from "../terminal.js";
+import { log, colors, banner, promptSelect, promptInput } from "../terminal.js";
 
 const SCAFFOLD_OPTIONS = [
   { label: "New Feature Bento Tab", value: "feature", desc: "Add a new tool/feature tab in the bento explorer" },
@@ -100,7 +100,6 @@ export async function runScaffold(subcommand, options = {}) {
         ],
       },`;
 
-      const marker = "  useCases: {\n    title:";
       const itemsMarker = "    items: [";
       if (content.includes(itemsMarker)) {
         content = content.replace(itemsMarker, `${itemsMarker}\n${newUseCase}`);

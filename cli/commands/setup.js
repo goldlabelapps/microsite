@@ -1,7 +1,7 @@
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { checkEnv, printEnvSummary } from "../env.js";
+import { checkEnv } from "../env.js";
 import { log, banner, colors, promptConfirm } from "../terminal.js";
 
 /**
@@ -16,7 +16,7 @@ function runStep(cmd, options = {}) {
   try {
     execSync(cmd, { stdio: "inherit", shell: true });
     return true;
-  } catch (err) {
+  } catch {
     log.error(`Command failed: ${cmd}`);
     return false;
   }

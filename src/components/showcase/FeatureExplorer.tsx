@@ -34,22 +34,22 @@ export function FeatureExplorer() {
   };
 
   return (
-    <section id="features" className="py-24 sm:py-32 relative bg-[#090a0e] overflow-hidden">
+    <section id="features" className="py-24 sm:py-32 relative bg-white dark:bg-[#090a0e] overflow-hidden transition-colors duration-200">
       {/* Background glow lines */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/10 rounded-full blur-3xl opacity-50" />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-500/5 dark:bg-blue-600/10 rounded-full blur-3xl opacity-50" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400 mb-4 backdrop-blur-md">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-600 dark:text-blue-400 mb-4 backdrop-blur-md">
             <Zap className="h-3.5 w-3.5" />
             <span>Developer Ecosystem</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight">
             {siteConfig.features.sectionTitle || "Explore Products"}
           </h2>
           {siteConfig.features.subtitle && (
-            <p className="mt-4 text-base sm:text-lg text-neutral-400">
+            <p className="mt-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-400">
               {siteConfig.features.subtitle}
             </p>
           )}
@@ -57,7 +57,7 @@ export function FeatureExplorer() {
 
         {/* Tab Navigation Pill Bar */}
         <div className="flex justify-center mb-10 overflow-x-auto pb-2 scrollbar-none">
-          <div className="inline-flex p-1.5 rounded-2xl bg-[#12141a] border border-white/10 shadow-xl max-w-full">
+          <div className="inline-flex p-1.5 rounded-2xl bg-neutral-100 border border-neutral-200 dark:bg-[#12141a] dark:border-white/10 shadow-sm dark:shadow-xl max-w-full">
             {items.map((tab) => {
               const isActive = tab.id === activeItemId;
               return (
@@ -65,10 +65,10 @@ export function FeatureExplorer() {
                   key={tab.id}
                   onClick={() => setActiveItemId(tab.id)}
                   className={cn(
-                    "flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap",
+                    "flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer",
                     isActive
                       ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25"
-                      : "text-neutral-400 hover:text-neutral-200 hover:bg-white/5"
+                      : "text-neutral-600 hover:text-neutral-900 hover:bg-white/60 dark:text-neutral-400 dark:hover:text-neutral-200 dark:hover:bg-white/5"
                   )}
                 >
                   <span>{tab.title}</span>
@@ -76,7 +76,7 @@ export function FeatureExplorer() {
                     <span
                       className={cn(
                         "text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider",
-                        isActive ? "bg-white/20 text-white" : "bg-blue-500/10 text-blue-400"
+                        isActive ? "bg-white/20 text-white" : "bg-blue-500/10 text-blue-600 dark:text-blue-400"
                       )}
                     >
                       {tab.badge}
@@ -90,20 +90,20 @@ export function FeatureExplorer() {
 
         {/* Active Tab Preview Display */}
         {activeItem && (
-          <div className="rounded-3xl border border-white/10 bg-[#101217]/90 backdrop-blur-2xl p-6 sm:p-10 shadow-2xl">
+          <div className="rounded-3xl border border-neutral-200 dark:border-white/10 bg-[#f8f9fa] dark:bg-[#101217]/90 backdrop-blur-2xl p-6 sm:p-10 shadow-xl dark:shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Left Description Column */}
               <div className="lg:col-span-5 space-y-6">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/[0.04] border border-black/5 dark:bg-white/5 dark:border-white/10 text-xs font-mono text-neutral-700 dark:text-neutral-300 mb-3">
                     <span>{activeItem.tag}</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white tracking-tight">
                     {activeItem.title}
                   </h3>
                 </div>
 
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed font-normal">
                   {activeItem.description}
                 </p>
 
@@ -111,7 +111,7 @@ export function FeatureExplorer() {
                   <div className="pt-2">
                     <a
                       href={activeItem.cta.href}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
                     >
                       <span>{activeItem.cta.label}</span>
                       <span>→</span>
@@ -122,7 +122,7 @@ export function FeatureExplorer() {
 
               {/* Right Interactive Code / Terminal Visual Column */}
               <div className="lg:col-span-7">
-                <div className="rounded-2xl border border-white/15 bg-[#0b0c10] shadow-2xl overflow-hidden">
+                <div className="rounded-2xl border border-neutral-800 bg-[#0b0c10] shadow-2xl overflow-hidden">
                   {/* Terminal / Code Editor Header */}
                   <div className="flex items-center justify-between px-4 py-3 bg-[#13151b] border-b border-white/10">
                     <div className="flex items-center gap-2">
@@ -152,7 +152,7 @@ export function FeatureExplorer() {
                     {activeItem.codeSnippet && (
                       <button
                         onClick={() => handleCopyCode(activeItem.codeSnippet!.code)}
-                        className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white transition-colors text-xs font-mono"
+                        className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-neutral-300 hover:text-white transition-colors text-xs font-mono cursor-pointer"
                       >
                         {copiedCode ? (
                           <Check className="h-3.5 w-3.5 text-emerald-400" />
@@ -178,7 +178,7 @@ export function FeatureExplorer() {
                                 </div>
                                 <button
                                   onClick={() => handleCopyCode(cmd.cmd!)}
-                                  className="p-1 rounded hover:bg-white/10 text-neutral-400 hover:text-white"
+                                  className="p-1 rounded hover:bg-white/10 text-neutral-400 hover:text-white cursor-pointer"
                                   title="Copy command"
                                 >
                                   <Copy className="h-3.5 w-3.5" />
